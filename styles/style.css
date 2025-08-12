@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #162A41;
+  --color-bghero: #444444;
+  --color-inputbg: #162A41;
+  --color-cPara: #333333;
+  --color-secondary: #1c1c1e;
+  /* --color-accent: #ff4081; */
+}
+
+a.active {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 5rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px; 
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;   
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1536px) {
+    max-width: 1536px;
+  }
+}
