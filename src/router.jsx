@@ -6,20 +6,25 @@ import Maeglere from './pages/Maeglere.jsx';
 import Kontakt from './pages/Contack.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Favoritter from './pages/Favoritter.jsx';
+import { boligLoader } from './components/utilites/loderData.js';
+import Loading from './components/Loading.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    hydrateFallback: <Loading />,
     children: [
       {
         index: true,
         element: <Home />,
+        loader: boligLoader
       },
       {
         path: 'bolig',
         element: <Bolig />,
+        loader: boligLoader
       },
       {
         path: 'maeglere',

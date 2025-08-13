@@ -1,8 +1,11 @@
+import HomeLists from "../components/home/HomeLists";
 
-export default function BoligList() {
+export default function BoligList() {  
+
   return (
-    <div>
-      <h1>Boliger til salg</h1>
-    </div>
-  )
+    <section className="">
+      <p className="text-3xl font-semibold py-8 bg-primary text-white text-center">Boliger til salg</p>
+      <HomeLists />
+    </section>
+  );
 }
