@@ -1,5 +1,6 @@
 import DanskeHjem from "../components/danskeHjem/DanskeHjem";
 import Hero from "../components/Hero";
+import Nyhedsbrev from "../components/Nyhedsbrev";
 import UdvalgteBoliger from "../components/UdvalgteBoliger";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <DanskeHjem />
       <UdvalgteBoliger />
+      <Nyhedsbrev />
     </div>
   )
 }

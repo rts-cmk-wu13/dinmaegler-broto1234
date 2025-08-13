@@ -1,8 +1,9 @@
+import { Link } from "react-router";
 
-export default function Button({ name }) {
+export default function Button({ name, to }) {
   return (
-    <button className="bg-inputbg text-white w-26 text-sm p-2">
+    <Link to={to} className="bg-inputbg text-white w-26 text-center text-sm p-2">
       {name}
-    </button>
+    </Link>
   )
 }

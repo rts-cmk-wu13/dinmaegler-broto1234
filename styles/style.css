@@ -1,12 +1,15 @@
 @import 'tailwindcss';
 
+
 @theme {
   --color-primary: #162A41;
   --color-bghero: #444444;
+  --color-bg01: #f8f8f8;
+  --color-bg05: #455463;
   --color-inputbg: #162A41;
   --color-cPara: #333333;
   --color-secondary: #1c1c1e;
-  /* --color-accent: #ff4081; */
+  --color-borderLine: #D3DEE8;
 }
 
 a.active {
@@ -21,7 +24,7 @@ img {
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 5rem;
+  padding-inline: 8rem;
 
   @media (width >= 640px) {
     max-width: 640px;
