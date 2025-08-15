@@ -2,10 +2,12 @@ import { energyColors } from '../../../data/eneryColor';
 import Dot from '../Dot';
 
 export default function HomeCard({ home }) {
+  console.log(home);
+  
   const bgColor = energyColors[home.energylabel] || "#e0e0e0";
 
   return (
-    <div>     
+    <div  className="shadow-md rounded-sm overflow-hidden">     
       <div className="w-full h-36">
         <img src={home.images[0].url} alt={home.title} className="w-full" />
       </div> 
@@ -19,7 +21,9 @@ export default function HomeCard({ home }) {
         <div className="flex gap-2 text-sm">
           <div>
             <p className="px-2 py-0.5 text-white rounded"
-              style={{ backgroundColor: bgColor }}>{home.energylabel}</p>
+              style={{ backgroundColor: bgColor }}>
+                {home.energylabel}
+            </p>
           </div>
           <p className="flex items-center gap-1">{home.rooms} værelser <Dot /> {home.livingspace} m²</p>
         </div>

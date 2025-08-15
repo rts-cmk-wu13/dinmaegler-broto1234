@@ -9,7 +9,7 @@ export default function Search() {
           <p className="text-sm">Hvad skal din næste bolig indeholde</p>
           <div className="flex gap-2">
             <input type="text" placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende" className="border-2 border-gray-300 px-2 w-full placeholder:text-xs focus:outline-none focus:ring-2 focus:ring-inputbg" />
-            <Button name="Søg" />
+            <Button to="#" name="Søg" txColor="text-white" bgColor="bg-primary" bdColor="border-primary"/>
           </div>
         </div>
       </section>
