@@ -17,7 +17,7 @@ export default function Nyhedsbrev() {
         }}
       ></div>
       <div className="container text-center space-y-2 sm:space-y-0 sm:grid grid-cols-2 gap-2 items-center relative z-10">
-        <p className="text-md md:text-2xl">Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet</p>
+        <p className="text-xs md:text-sm lg:text-xl max-w-90">Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet</p>
         <div className="flex max-w-md rounded-sm bg-white px-3 py-2">
           <input 
             type="email"

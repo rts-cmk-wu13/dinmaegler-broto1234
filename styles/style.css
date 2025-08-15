@@ -10,6 +10,9 @@
   --color-cPara: #333333;
   --color-secondary: #1c1c1e;
   --color-borderLine: #D3DEE8;
+
+  --spacing-lsp1: 1px;
+
 }
 
 a.active {

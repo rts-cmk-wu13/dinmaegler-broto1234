@@ -6,7 +6,7 @@ import Maeglere from './pages/Maeglere.jsx';
 import Kontakt from './pages/Contack.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Favoritter from './pages/Favoritter.jsx';
-import { boligLoader } from './components/utilites/loderData.js';
+import { agentsLoader, boligLoader, combinedLoader } from './components/utilites/loderData.js';
 import Loading from './components/Loading.jsx';
 
 
@@ -19,16 +19,17 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: boligLoader
+        loader: combinedLoader
       },
       {
         path: 'bolig',
         element: <Bolig />,
-        loader: boligLoader
+        loader: combinedLoader
       },
       {
         path: 'maeglere',
         element: <Maeglere />,
+        loader: combinedLoader
       },
       {
         path: 'favoritter',
