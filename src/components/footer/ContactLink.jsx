@@ -4,7 +4,7 @@ import { mixData } from '../../../data/mixData';
 export default function ContactLink() {
   const { footerContactText } = mixData[3];
   return (
-    <div className="p-6 w-72 rounded-sm bg-white space-y-2 shadow-lg">
+    <div className="p-6 w-72 space-y-2">
       {contactLinks.map(link => (
         <div key={link.id} className="flex items-center gap-1">
           <div className="mr-2 p-3 rounded-full bg-inputbg flex items-center justify-center">
