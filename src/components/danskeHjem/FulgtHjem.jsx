@@ -14,7 +14,7 @@ export default function FulgtHjem() {
           <div className="flex justify-between my-6">
             {danskeHjemData.stats.map(stat => (
               <div key={stat.id} className="flex gap-2">
-                <div className="w-12">
+                <div className="">
                   <img src={stat.image} alt={stat.label} className="w-full h-full" />
                 </div>
                 <div>

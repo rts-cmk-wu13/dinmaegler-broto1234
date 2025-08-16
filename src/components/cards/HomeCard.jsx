@@ -2,13 +2,13 @@ import { energyColors } from '../../../data/eneryColor';
 import Dot from '../Dot';
 
 export default function HomeCard({ home }) {
-  console.log(home);
+  // console.log(home);
   
   const bgColor = energyColors[home.energylabel] || "#e0e0e0";
 
   return (
     <div  className="shadow-md rounded-sm overflow-hidden">     
-      <div className="w-full h-36">
+      <div className="w-full h-36 sm:h-44 lg:h-80">
         <img src={home.images[0].url} alt={home.title} className="w-full" />
       </div> 
       <div className="space-y-2 mx-4 py-2 border-b-2 border-borderLine">

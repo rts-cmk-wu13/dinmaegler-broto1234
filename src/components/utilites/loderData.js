@@ -1,6 +1,8 @@
 import queryClient from '../../queryclient';
 
-// This function loads bolig data
+const BASE_URL = 'https://dinmaegler.onrender.com';
+
+// This function loads 'bolig' data
 export async function boligLoader() {
   return queryClient.fetchQuery({
     queryKey: ['homes'],
@@ -8,15 +10,14 @@ export async function boligLoader() {
   });
 }
 async function fetchBoligData() {
-  const response = await fetch('https://dinmaegler.onrender.com/homes');
+  const response = await fetch(`${BASE_URL}/homes`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
   return response.json();
 }
 
-
-// This function loads agents data
+// This function loads 'agents' data
 export async function agentsLoader() {
   return queryClient.fetchQuery({
     queryKey: ['agents'],
@@ -24,14 +25,14 @@ export async function agentsLoader() {
   });
 }
 async function fetchAgentsData() {
-  const response = await fetch('https://dinmaegler.onrender.com/agents');
+  const response = await fetch(`${BASE_URL}/agents`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
   return response.json();
 }
 
-// Create a loader for the combined data
+// Create a loader for the 'combined' data
 export async function combinedLoader() {
   const [homes, agents] = await Promise.all([boligLoader(), agentsLoader()]);
   return { homes, agents };

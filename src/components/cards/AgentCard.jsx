@@ -9,7 +9,7 @@ export default function AgentCard({ agent }) {
 
   return (
     <div className="shadow-md rounded-sm overflow-hidden">  
-      <div className="w-full h-36">
+      <div className="w-full h-36 sm:h-44 lg:h-80">
         <img src={agent.image.url} alt={agent.title} className="w-full" />
       </div> 
       <div className="flex flex-col items-center py-4 space-y-1">
