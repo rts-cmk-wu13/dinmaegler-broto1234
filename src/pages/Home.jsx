@@ -1,6 +1,6 @@
 // import { useLoaderData } from "react-router";
 import DanskeHjem from "../components/danskeHjem/DanskeHjem";
-import Hero from "../components/Hero";
+import Hero from "../components/hero/Hero";
 import Nyhedsbrev from "../components/Nyhedsbrev";
 // import UdvalgteBoliger from "../components/HomeBoligAgent";
 import HomeBoligAgent from "../components/HomeBoligAgent";
