@@ -6,10 +6,11 @@ import Maeglere from './pages/Maeglere.jsx';
 import Kontakt from './pages/Contack.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Favoritter from './pages/Favoritter.jsx';
-import { agentsLoader, boligLoader, combinedLoader, DetailBoligLoader } from './components/utilites/loderData.js';
+import { agentsLoader, boligLoader, combinedLoader, detailAgentLoader, detailBoligLoader } from './components/utilites/loderData.js';
 import Loading from './components/Loading.jsx';
 import DetailBolig from './pages/DetailBolig.jsx';
-
+import DetailAgent from './pages/DetailAgent.jsx';
+import Contact from './pages/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: 'homes/:id',
         element: <DetailBolig />,
-        loader: DetailBoligLoader,
+        loader: detailBoligLoader
       },
       {
         path: 'maeglere',
@@ -38,12 +39,17 @@ const router = createBrowserRouter([
         loader: agentsLoader
       },
       {
+        path: 'agents/:id',
+        element: <DetailAgent />,
+        loader: detailAgentLoader
+      },
+      {
         path: 'favoritter',
         element: <Favoritter />,
       },
       {
         path: 'kontakt',
-        element: <Kontakt />,
+        element: <Contact />,
       },
       {
         path: '*',

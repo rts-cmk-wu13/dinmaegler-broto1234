@@ -17,23 +17,8 @@ async function fetchBoligData() {
   return response.json();
 }
 
-// This function loads 'agents' data
-export async function agentsLoader() {
-  return queryClient.fetchQuery({
-    queryKey: ['agents'],
-    queryFn: fetchAgentsData
-  });
-}
-async function fetchAgentsData() {
-  const response = await fetch(`${BASE_URL}/agents`);
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-}
-
 // This function loads 'detail bolig' data
-export async function DetailBoligLoader({ params }) {
+export async function detailBoligLoader({ params }) {
   const { id } = params;
   console.log(id);
 
@@ -50,13 +35,46 @@ async function fetchBoligDataById(id) {
   return response.json();
 }
 
-// Create a loader for the 'combined' data
+
+// This function loads 'agents' data
+export async function agentsLoader() {
+  return queryClient.fetchQuery({
+    queryKey: ['agents'],
+    queryFn: fetchAgentsData
+  });
+}
+async function fetchAgentsData() {
+  const response = await fetch(`${BASE_URL}/agents`);
+  // const response = await fetch(`${BASE_URL}/agents?_limit=5`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+}
+
+// This function loads 'detail agent' data
+export async function detailAgentLoader({ params }) {
+  const { id } = params;
+  console.log(id);
+
+  return queryClient.fetchQuery({
+    queryKey: ['agents', id],
+    queryFn: () => fetchAgentDataById(id)
+  });
+}
+async function fetchAgentDataById(id) {
+  const response = await fetch(`${BASE_URL}/agents/${id}`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+}
+
+// Create a loader for the 'combined = home+agent' data
 export async function combinedLoader() {
   const [homes, agents] = await Promise.all([boligLoader(), agentsLoader()]);
   return { homes, agents };
 }
-
-
 
 
 //await Promise.all([...])
