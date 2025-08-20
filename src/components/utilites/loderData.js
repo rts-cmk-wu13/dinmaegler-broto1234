@@ -32,11 +32,32 @@ async function fetchAgentsData() {
   return response.json();
 }
 
+// This function loads 'detail bolig' data
+export async function DetailBoligLoader({ params }) {
+  const { id } = params;
+  console.log(id);
+
+  return queryClient.fetchQuery({
+    queryKey: ['homes', id],
+    queryFn: () => fetchBoligDataById(id)
+  });
+}
+async function fetchBoligDataById(id) {
+  const response = await fetch(`${BASE_URL}/homes/${id}`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+}
+
 // Create a loader for the 'combined' data
 export async function combinedLoader() {
   const [homes, agents] = await Promise.all([boligLoader(), agentsLoader()]);
   return { homes, agents };
 }
+
+
+
 
 //await Promise.all([...])
 // is used in combinedLoader to run both data fetches at the same time (in parallel), instead of one after the other.

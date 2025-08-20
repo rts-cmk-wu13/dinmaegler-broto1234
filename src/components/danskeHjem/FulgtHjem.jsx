@@ -2,7 +2,7 @@ import { danskeHjemData } from "/data/danskeHjem";
 
 export default function FulgtHjem() {
   return (
-    <div className="md:grid grid-cols-2 gap-6 space-y-6">
+    <div className="container md:grid grid-cols-2 gap-6 space-y-6">
         <div className="w-80 h-80">
           <img src={danskeHjemData.hjemImage} alt="hjem" className="" />
         </div>

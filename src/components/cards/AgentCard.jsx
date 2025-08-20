@@ -19,8 +19,7 @@ export default function AgentCard({ agent }) {
           <MdEmail size={14} className="text-black" />
           <FaLinkedinIn size={14} className="text-black" />
         </div>         
-      </div>
-     
+      </div>     
     </div>
   )
 }

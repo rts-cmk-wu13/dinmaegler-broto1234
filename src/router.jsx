@@ -1,13 +1,14 @@
 import { createBrowserRouter } from 'react-router'
 import Layout from './Layout.jsx'
 import Home from './pages/Home.jsx'
-import Bolig from './pages/Bolig.jsx';
+import Boliger from './pages/Boliger.jsx';
 import Maeglere from './pages/Maeglere.jsx';
 import Kontakt from './pages/Contack.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Favoritter from './pages/Favoritter.jsx';
-import { agentsLoader, boligLoader, combinedLoader } from './components/utilites/loderData.js';
+import { agentsLoader, boligLoader, combinedLoader, DetailBoligLoader } from './components/utilites/loderData.js';
 import Loading from './components/Loading.jsx';
+import DetailBolig from './pages/DetailBolig.jsx';
 
 
 const router = createBrowserRouter([
@@ -23,13 +24,18 @@ const router = createBrowserRouter([
       },
       {
         path: 'bolig',
-        element: <Bolig />,
-        loader: combinedLoader
+        element: <Boliger />,
+        loader: boligLoader
+      },
+      {
+        path: 'homes/:id',
+        element: <DetailBolig />,
+        loader: DetailBoligLoader,
       },
       {
         path: 'maeglere',
         element: <Maeglere />,
-        loader: combinedLoader
+        loader: agentsLoader
       },
       {
         path: 'favoritter',

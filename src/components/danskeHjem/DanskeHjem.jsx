@@ -4,7 +4,7 @@ import FulgtHjem from "./FulgtHjem";
 
 export default function DanskeHjem() {
   return (
-    <section className="container px-2 my-6">
+    <section className="py-10">
       <FulgtHjem />
       <Bestil />      
     </section>
