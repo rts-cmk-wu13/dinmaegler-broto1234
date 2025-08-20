@@ -7,7 +7,7 @@ export default function MaeglereLists() {
 
   return (
     <section className="">
-      <p className="text-3xl font-semibold py-8 bg-primary text-white text-center">Mæglere</p>
+      <p className="text-3xl font-semibold py-8 bg-primary text-white text-center">Medarbejdere i Roskilde</p>
       <AgentsLists />
     </section>
   );
