@@ -1,4 +1,4 @@
-import { BsTelephone } from "react-icons/bs";
+// import { BsTelephone } from "react-icons/bs";
 import { BsTelephoneFill } from "react-icons/bs";
 import { FaPaperPlane } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
