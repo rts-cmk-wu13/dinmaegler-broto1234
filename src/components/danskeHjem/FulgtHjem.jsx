@@ -3,11 +3,11 @@ import { danskeHjemData } from "/data/danskeHjem";
 export default function FulgtHjem() {
   return (
     <div className="container md:grid grid-cols-2 gap-6 space-y-6">
-        <div className="w-80 h-80">
+        <div className="sm:w-80 sm:h-80">
           <img src={danskeHjemData.hjemImage} alt="hjem" className="" />
         </div>
         <div className="space-y-2">
-          <p className="text-2xl font-bold w-80">{danskeHjemData.title}</p>
+          <p className="text-2xl font-bold max-w-80">{danskeHjemData.title}</p>
           <p className="text-base font-semibold">{danskeHjemData.subtitle}</p>
           <p className="text-cPara text-sm">{danskeHjemData.descriptionOne}</p>
           <p className="text-cPara text-sm">{danskeHjemData.descriptionTwo}</p>

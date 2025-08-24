@@ -65,15 +65,16 @@ export async function detailAgentLoader({ params }) {
 async function fetchAgentDataById(id) {
   const response = await fetch(`${BASE_URL}/agents/${id}`);
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    return null;
+    // throw new Error('Network response was not ok');
   }
   return response.json();
 }
 
-// Create a loader for the 'combined = home+agent' data
-export async function combinedLoader() {
-  const [homes, agents] = await Promise.all([boligLoader(), agentsLoader()]);
-  return { homes, agents };
+// Create a loader for the 'combined = home,agent,detailAgent' data
+export async function combinedLoader({ params }) {
+  const [homes, agents, detailAgent] = await Promise.all([boligLoader(), agentsLoader(), detailAgentLoader({ params })]);
+  return { homes, agents, detailAgent };
 }
 
 

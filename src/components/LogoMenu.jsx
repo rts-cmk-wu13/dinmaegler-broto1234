@@ -4,7 +4,7 @@ import LogoCompo from './LogoCompo';
 
 export default function LogoMenu() {
   return (
-    <section className="py-4 sm:container sm:flex  justify-between items-center text-xs md:text-base">
+    <section className="py-4 container sm:flex  justify-between items-center text-xs md:text-base">
       <LogoCompo />
       <nav className="sm:flex gap-4">
           {navItems.map((item) => (

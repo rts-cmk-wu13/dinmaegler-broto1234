@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, Link } from "react-router";
 import Button from "../Button";
 
-export default function HeroInput() {
+export default function SearchInput( { hiddenSome, pHolder} ) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const searchData = useLoaderData();
@@ -17,10 +17,12 @@ export default function HeroInput() {
       <div className="flex gap-2">
         <input
         type="text"
-        placeholder="Get homes by type, Ex. villa, Ejerlejlighed etc." className="border-2 border-gray-300 px-2 w-full placeholder:text-xs focus:outline-none focus:ring-2 focus:ring-inputbg" 
+        placeholder={pHolder} className="border-2 border-gray-300 px-2 w-full placeholder:text-xs focus:outline-none focus:ring-2 focus:ring-inputbg" 
         onChange={handleChange}
         />
-        <Button to="#" name="Søg" txColor="text-white" bgColor="bg-primary" bdColor="border-primary"/>
+        {hiddenSome && (
+          <Button to="#" name="Søg" txColor="text-white" bgColor="bg-primary" bdColor="border-primary"/>
+        )}
       </div>
       <div className="absolute xs:top-[20rem] bg-primary max-h-80 overflow-y-auto">              
         {homesData && homesData.filter(itm =>
@@ -31,7 +33,7 @@ export default function HeroInput() {
           // itm.city.toLowerCase().includes(searchTerm.toLowerCase())
         )
           ).map(itm => (
-          <div key={itm.id} onClick={() => setSearchTerm('')} className="flex items-center text-white gap-2 p-2 hover:bg-gray-100 cursor-pointer">
+          <Link to={`/homes/${itm.id}`} key={itm.id} onClick={() => setSearchTerm('')} className="flex items-center text-white gap-2 p-2 cursor-pointer">
             <div className="w-14 h-14">
               <img src={itm.images[0].url} alt={itm.title} className="w-full" />
             </div> 
@@ -43,9 +45,7 @@ export default function HeroInput() {
                 <span><span className="font-semibold">Ejerudgift: </span>{itm.netto.toLocaleString('en-US').replace(/,/g, '.')} kr.</span>
               </p>
             </div>
-            {/* {itm.type} */}
-            {/* <HomeCard key={itm.id} home={itm} style={{ cursor: 'pointer', maxWidth: '50px' }} /> */}
-          </div>
+          </Link>
         ))}
       </div>
     </div>
