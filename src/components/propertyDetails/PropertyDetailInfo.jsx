@@ -5,15 +5,18 @@ import { PiMountainsThin } from "react-icons/pi";
 import { IoLayersOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
+import ThumbTab from '../ThumbTab';
+// import tabGroup from '../ThumbTab';
 
 const PropertyDetailInfo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
 
   const homes = useLoaderData();
-  console.log(homes);
+  // console.log(homes);
   const tabsList = [
-    <img src={homes.images[0].url} alt="" />,
+    <ThumbTab />,
+    // <img src={homes.images[0].url} alt="" />,
     <img src={homes.floorplan.url} alt="floorplan" />,
     <iframe
       width="760"

@@ -1,5 +1,6 @@
 
 import AgentsLists from "../components/AgentsLists";
+import Banner from "../components/Banner";
 
 export default function MaeglereLists() {  
   // console.log(agents);
@@ -7,7 +8,7 @@ export default function MaeglereLists() {
 
   return (
     <section className="">
-      <p className="text-3xl font-semibold py-8 bg-primary text-white text-center">Medarbejdere i Roskilde</p>
+      <Banner bannerText="Medarbejdere i Roskilde" />
       <AgentsLists />
     </section>
   );

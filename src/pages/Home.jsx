@@ -1,6 +1,6 @@
 // import { useLoaderData } from "react-router";
 import DanskeHjem from "../components/danskeHjem/DanskeHjem";
-import Hero from "../components/hero/Hero";
+import Hero from "../components/Hero";
 import Nyhedsbrev from "../components/Nyhedsbrev";
 // import UdvalgteBoliger from "../components/HomeBoligAgent";
 import HomeBoligAgent from "../components/HomeBoligAgent";
@@ -14,7 +14,7 @@ export default function Home() {
     <div className="">
       <Hero />
       <DanskeHjem />
-      <HomeBoligAgent limit={4} categoryName={mixData[0]} component="HomeCrd" />
+      <HomeBoligAgent limit={4} categoryName={mixData[0]} component="HomeCrd" favoriteHomeIcon={false} />
       <Nyhedsbrev />
       <HomeBoligAgent limit={3} categoryName={mixData[1]} component="AgentsCrd" />
       <Update />

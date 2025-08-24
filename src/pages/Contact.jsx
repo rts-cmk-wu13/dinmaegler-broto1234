@@ -1,99 +1,32 @@
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import Banner from '../components/Banner'
+import ContactForm from '../components/ContactForm'
+import ContactLink from '../components/footer/ContactLink'
 
 export default function Contact() {
+  
   return (
     <section>
-      <p className="text-3xl font-semibold py-8 bg-primary text-white text-center">Kontakt os</p>
-      <div className="isolate bg-white px-6 py-2 lg:px-8">        
-        <form action="#" method="POST" className="mx-auto mt-6 max-w-xl">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-            <div>
-              <label htmlFor="navn" className="block text-sm/6 font-semibold text-gray-900">
-                Navn
-              </label>
-              <div className="mt-2.5">
-                <input
-                  id="navn"
-                  name="navn"
-                  type="text"
-                  autoComplete="given-name"
-                  placeholder="Indtast dit navn"
-                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                />
-              </div>
-            </div>          
-            <div className="">
-              <label htmlFor="email" className="block text-sm/6 font-semibold text-gray-900">
-                Email
-              </label>
-              <div className="mt-2.5">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="Indtast din email"
-                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-2">
-              <label htmlFor="emne" className="block text-sm/6 font-semibold text-gray-900">
-                Emne
-              </label>
-              <div className="mt-2.5">
-                <div className="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">                
-                  <input
-                    id="phone-number"
-                    name="phone-number"
-                    type="text"
-                    placeholder="Indtast emne"
-                    className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="sm:col-span-2">
-              <label htmlFor="message" className="block text-sm/6 font-semibold text-gray-900">
-                Message
-              </label>
-              <div className="mt-2.5">
-                <textarea
-                  // id="message"
-                  name="message"
-                  placeholder="Indtast din besked..."
-                  rows={4}
-                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                  defaultValue={''}
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-2 flex items-center space-x-2">
-              <input
-                id="newsletter"
-                type="checkbox"
-                // checked={subscribed}
-                // onChange={(e) => setSubscribed(e.target.checked)}
-                className="h-6 w-6 border-gray-500 text-blue-600 focus:ring-blue-500"
-              />
-              <label
-                htmlFor="newsletter"
-                className="text-sm text-gray-900 cursor-pointer"
-              >
-                Ja tak, jeg vil gerne modtage Din Mæglers nyhedsbrev.
-              </label>
-            </div>
+      <Banner bannerText="Kontakt os" />
+      <div className="container py-2 sm:py-14">
+        <div className="mb-6">
+          <p className="text-sm font-semibold -mb-3">Vi sidder klar til at besvare dine spørgsmål</p>
+          <span className="border-1 inline-block w-12 text-black"></span>
+          <p className="max-w-120 text-xs mt-3">Der kan opstå tvivl om mange ting nå man gerne vil, eller er i gang med at sælge sin bolig. Vores medarbejdere sider klar alle ugens dage til at svare på dine spørgsmål.</p>
+        </div>
+        <div className="sm:grid grid-cols-3 gap-4">
+          <div className="col-span-2 p-2 border-1 border-borderLine">
+            <ContactForm nPholder="Indtast dit navn" ePholder="Indtast din email" emnePholder="Indtast emne" bksPholder="Indtast din besked" showNewsletter={true} />
           </div>
-          <div className="mt-10">
-            <button
-              type="submit"
-              className="block w-full rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              Send besked
-            </button>
+          <div className="mt-4 sm:mt-0 p-2 border-1 border-borderLine">
+            <ContactLink extraStyle="contactPage" fConText={false} />
           </div>
-        </form>
+        </div>
       </div>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.44789019306!2d12.077728974888322!3d55.64090351514623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46525fda8582267b%3A0x3a79b4f713b2bf83!2sSt%C3%A6ndertorvet%2078%2C%204000%20Roskilde!5e1!3m2!1sen!2sdk!4v1755858523278!5m2!1sen!2sdk" width="100%" 
+        height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        className="border-0"
+        ></iframe>
     </section>
   )
 }

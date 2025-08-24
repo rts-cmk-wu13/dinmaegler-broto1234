@@ -12,7 +12,7 @@ const PropertyDetailAgenInfo = () => {
       </div>
       <div className="">
         <p className="font-semibold mb-4">Ansvarlig mægler</p>
-        <div className="w-[23rem] md:w-[28rem] p-2 border-1 border-borderLine">
+        <div className="w-[15rem] sm:w-[25rem] lg:w-[28rem] p-2 border-1 border-borderLine">
           <AgentInfoCard agentData={homes.agent} />
         </div>
       </div>

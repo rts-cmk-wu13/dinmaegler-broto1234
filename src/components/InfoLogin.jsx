@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { LuUserRound } from "react-icons/lu";
 
@@ -9,10 +10,10 @@ export default function InfoLogin() {
           <FaRegPaperPlane />
           <span>4000@dinmaegler.com</span>
         </div>
-        <div className="flex gap-2 items-center">
+        <Link to="/login" className="flex gap-2 items-center">
           <LuUserRound />
           <span>Log ind</span>
-        </div>
+        </Link>
       </div>      
     </section>
   )

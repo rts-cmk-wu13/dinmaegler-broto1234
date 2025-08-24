@@ -3,14 +3,16 @@ import { energyColors } from '../../../data/eneryColor';
 import Dot from '../Dot';
 import { IoIosHeartEmpty } from "react-icons/io";
 
-export default function HomeCard({ home }) {
+export default function HomeCard({ home, favoriteHomeIcon=true }) {
   // console.log(home);
   
   const bgColor = energyColors[home.energylabel] || "#e0e0e0";
 
   return (
     <div  className="relative shadow-md rounded-sm overflow-hidden cursor-pointer hover:scale-101 hover:shadow-lg transition-all" >   
-      <button className="absolute top-2 right-2 p-2 bg-white rounded-full"><IoIosHeartEmpty className=""/></button>  
+      {favoriteHomeIcon && (
+        <button className="absolute top-2 right-2 p-2 bg-white rounded-full"><IoIosHeartEmpty className=""/></button>  
+      )}
       <Link to={`/homes/${home.id}`}>
         <div className="w-full h-36 sm:h-44 lg:h-80">
           <img src={home.images[0].url} alt={home.title} className="w-full" />
