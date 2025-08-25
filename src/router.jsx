@@ -13,6 +13,7 @@ import Contact from './pages/Contact.jsx';
 import handleSubmit from './components/utilites/actions.js';
 import { ErrorBoundary } from './components/Error.jsx';
 import LogIn from './pages/LogIn.jsx';
+import RequireAuth from './components/RequireAuth.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'favoritter',
-        element: <Favoritter />,
+        element: (
+          <RequireAuth>
+            <Favoritter />
+          </RequireAuth>
+        ),
       },
       {
         path: 'kontakt',

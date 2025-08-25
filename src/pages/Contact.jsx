@@ -24,7 +24,7 @@ export default function Contact() {
       </div>
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.44789019306!2d12.077728974888322!3d55.64090351514623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46525fda8582267b%3A0x3a79b4f713b2bf83!2sSt%C3%A6ndertorvet%2078%2C%204000%20Roskilde!5e1!3m2!1sen!2sdk!4v1755858523278!5m2!1sen!2sdk" width="100%" 
-        height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
         className="border-0"
         ></iframe>
     </section>

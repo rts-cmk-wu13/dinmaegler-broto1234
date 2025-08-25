@@ -1,6 +1,7 @@
 import {
   isRouteErrorResponse,
-  useRouteError, Link
+  useRouteError, 
+  Link
 } from "react-router";
 
 export function ErrorBoundary() {
