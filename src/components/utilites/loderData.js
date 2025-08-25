@@ -55,7 +55,7 @@ async function fetchAgentsData() {
 // This function loads 'detail agent' data
 export async function detailAgentLoader({ params }) {
   const { id } = params;
-  console.log(id);
+  // console.log(id);
 
   return queryClient.fetchQuery({
     queryKey: ['agents', id],
@@ -63,7 +63,9 @@ export async function detailAgentLoader({ params }) {
   });
 }
 async function fetchAgentDataById(id) {
-  const response = await fetch(`${BASE_URL}/agents/${id}`);
+  if(id) {
+    const response = await fetch(`${BASE_URL}/agents/${id}`);
+  }
   if (!response.ok) {
     return null;
     // throw new Error('Network response was not ok');

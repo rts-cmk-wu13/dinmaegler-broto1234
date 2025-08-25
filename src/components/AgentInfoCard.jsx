@@ -3,7 +3,7 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { FaPaperPlane } from "react-icons/fa";
 
 const AgentInfoCard = ({agentData}) => {
-   console.log(agentData);
+  //  console.log(agentData);
 
   return (
     <div className="w-[15rem] sm:w-[25rem] lg:w-[28rem] sm:grid grid-cols-2 md:gap-8 items-center justify-between">

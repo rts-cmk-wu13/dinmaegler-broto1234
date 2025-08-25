@@ -2,6 +2,11 @@
 
 https://dinmaegler.onrender.com/homes
 
+{
+  "identifier": "satyo@mail.dk",
+  "password": "123456"
+}
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
