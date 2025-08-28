@@ -23,7 +23,7 @@ export default function HomeCard({ home, favoriteHomeIcon = true, favoriteCardSt
             <span className="font-semibold">{home.type}</span>
             <Dot />
             <span className={`${favoriteCardStyle ? 'flex text-[1rem]' : ''}`}>
-              <span>Ejerudgift: </span>
+              <span className={`${favoriteCardStyle ? 'mr-1' : ''}`}>Ejerudgift : </span>
               <span>{home.netto.toLocaleString('en-US').replace(/,/g, '.')} kr.</span>
             </span>
           </p>
