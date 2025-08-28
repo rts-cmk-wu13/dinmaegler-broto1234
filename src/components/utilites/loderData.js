@@ -63,9 +63,10 @@ export async function detailAgentLoader({ params }) {
   });
 }
 async function fetchAgentDataById(id) {
-  if(id) {
-    const response = await fetch(`${BASE_URL}/agents/${id}`);
+  if(!id) {
+    return null;
   }
+  const response = await fetch(`${BASE_URL}/agents/${id}`);
   if (!response.ok) {
     return null;
     // throw new Error('Network response was not ok');

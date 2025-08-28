@@ -8,7 +8,7 @@ const Banner = ({ bannerText, secondText }) => {
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}>
-    <div className="py-12 bg-primary/90 text-center">
+    <div className="py-8 bg-primary/90 text-center">
       <p className="text-3xl font-semibold text-white   text-center mb-2">{bannerText}</p>
       {secondText && <div>
           <NavLink to="/" className="text-white">Home</NavLink>
