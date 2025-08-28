@@ -6,6 +6,7 @@ import { IoLayersOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import ThumbTab from '../ThumbTab';
+import HeartIcon from '../HeartIcon';
 // import tabGroup from '../ThumbTab';
 
 const PropertyDetailInfo = () => {
@@ -26,8 +27,8 @@ const PropertyDetailInfo = () => {
       src={`https://www.google.com/maps?q=${homes.lat},${homes.long}&z=15&output=embed`}
       allowFullScreen
       title="Map"
-    />,
-    <p>Favorite</p>
+    />
+    // <p>Favorite</p>
   ];
 
   return (
@@ -35,11 +36,12 @@ const PropertyDetailInfo = () => {
       <div className="flex flex-col text-sm font-semibold">{homes.adress1} <span>{homes.postalcode} {homes.city}</span>
       </div>
       <div>
-        <div  className="flex gap-4 text-2xl">
+        <div  className="flex items-center gap-4 text-2xl">
           <button onClick={() => {setIsOpen(true); setActiveTab(0);}}><PiMountainsThin /></button>
           <button onClick={() => {setIsOpen(true); setActiveTab(1);}}><IoLayersOutline /></button>
           <button onClick={() => {setIsOpen(true); setActiveTab(2);}}><CiLocationOn /></button>
-          <button onClick={() => {setIsOpen(true); setActiveTab(3);}}><CiHeart /></button>
+          <HeartIcon home={homes} favoriteHomeIcon={true} />
+          {/* <button onClick={() => {setIsOpen(true); setActiveTab(3);}}><CiHeart /></button> */}
         </div>
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="fixed inset-0 z-50">
           <div className="fixed inset-0 bg-black/97 bg-opacity-90" aria-hidden="true" />
@@ -50,7 +52,7 @@ const PropertyDetailInfo = () => {
                 <button onClick={() => setActiveTab(0)}><PiMountainsThin className="text-white" /></button>
                 <button onClick={() => setActiveTab(1)}><IoLayersOutline className="text-white" /></button>
                 <button onClick={() => setActiveTab(2)}><CiLocationOn className="text-white" /></button>
-                <button onClick={() => setActiveTab(3)}><CiHeart className="text-white" /></button>
+                <HeartIcon home={homes} favoriteHomeIcon={true} />
               </div>
             </DialogPanel>
           </div>

@@ -6,13 +6,16 @@ import router from '../src/router.jsx'
 import '../styles/style.css'
 import queryClient from './queryclient.js'
 import AuthProvider from './contexts/AuthContext.jsx'
+import { FavoritesProvider } from './contexts/FavoritesContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <FavoritesProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </FavoritesProvider>
     </AuthProvider>
   </StrictMode>,
 )

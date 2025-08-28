@@ -2,8 +2,9 @@ import { useLoaderData, Link } from 'react-router';
 import { useState } from 'react';
 import HomeCard from './cards/HomeCard.jsx';
 import PropertySearch from './PropertySearch.jsx';
+import HeartIcon from './HeartIcon.jsx';
 
-const BoligLists = () => {
+const BoligLists = ({ favoriteHomeIcon }) => {
   const homes = useLoaderData();
 
   // Filter states
@@ -32,9 +33,13 @@ const BoligLists = () => {
               setPrice={setPrice}
               />
               {sortedHomes?.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6">
               {sortedHomes?.map((home) => (
-                <HomeCard key={home.id} home={home} />
+                <div key={home.id}>
+                  <HeartIcon home={home} favoriteHomeIcon={favoriteHomeIcon}  boligStyle={true} />
+                  <HomeCard key={home.id} home={home} />
+                {/* // <HomeCard key={home.id} home={home} /> */}
+                </div>
               ))}
             </div>
         ) : (

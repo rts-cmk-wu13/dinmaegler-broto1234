@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import { Form, useLocation, useNavigate } from 'react-router';
+import { Form } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Banner from '../components/Banner';
 import { useAuth } from '../contexts/AuthContext';
+import LoginMed from '../components/LoginMed';
 
 const LogIn = () => {
   const [error, setError] = useState();
-  console.log(error);
+  // console.log(error);
   
   const location = useLocation();
   const navigate = useNavigate();
   
   const { login } = useAuth();
-  const from = location.state?.from.pathname || '/';
+  const from = location.state?.from.pathname || '/favoritter';
+  // console.log(location);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -28,17 +31,15 @@ const LogIn = () => {
     });
 
     const userData = await response.json();
-
-    console.log(userData.error);
+    // console.log(userData);
 
     if (response.ok) {
-      login(userData.jwt);
+      login(userData.user.username);
       navigate(from, { replace: true });
     } else {
       setError(userData.message || userData.error || 'Login failed');
     }    
-  
-};
+  };
 
   return (
     <section className="log-in" >
@@ -68,6 +69,7 @@ const LogIn = () => {
           {error && <p className="text-red-500">{error}</p>}
           <button type="submit" className="w-full bg-inputbg text-white text-xl py-4 rounded-xs">Log ind</button>
         </Form>
+        <LoginMed />
       </div>
     </section>
   )

@@ -14,13 +14,14 @@ import handleSubmit from './components/utilites/actions.js';
 import { ErrorBoundary } from './components/Error.jsx';
 import LogIn from './pages/LogIn.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
+import Register from './pages/Register.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     hydrateFallback: <Loading />,
-    errorElement: <ErrorBoundary />,
+    // errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
             <Favoritter />
           </RequireAuth>
         ),
+        loader: boligLoader
       },
       {
         path: 'kontakt',
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <LogIn />
+      },
+      {
+        path: 'register',
+        element: <Register />
       },
       {
         path: '*',
