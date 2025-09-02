@@ -81,39 +81,39 @@ export async function combinedLoader({ params }) {
   return { homes, agents, detailAgent };
 }
 
-// This function loads 'user/:id' data
-export async function userFavorite({ params }) {
-  const { id } = params;
-  // console.log(id);
+// // This function loads 'user/:id' data
+// export async function userFavorite({ params }) {
+//   const { id } = params;
+//   // console.log(id);
 
-  return queryClient.fetchQuery({
-    queryKey: ['users', id],
-    queryFn: () => userFavoriteDataById(id)
-  });
-}
-async function userFavoriteDataById(id) {
-  if (!id) return null;
-  const token = sessionStorage.getItem("token"); // or get from AuthContext
-  console.log("Token:", token);
-  const response = await fetch(`https://dinmaegler.onrender.com/users/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  if (!response.ok) return null;
-  return response.json();
-}
+//   return queryClient.fetchQuery({
+//     queryKey: ['users', id],
+//     queryFn: () => userFavoriteDataById(id)
+//   });
+// }
+// async function userFavoriteDataById(id) {
+//   if (!id) return null;
+//   const token = sessionStorage.getItem("token"); // or get from AuthContext
+//   console.log("Token:", token);
+//   const response = await fetch(`https://dinmaegler.onrender.com/users/${id}`, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   if (!response.ok) return null;
+//   return response.json();
+// }
 
-// New loader for user favorites and homes
-export async function userFavoritesLoader({ params }) {
-  const { id } = params;
-  console.log("User ID param:", id);
-  const [users, homes] = await Promise.all([
-    userFavoriteDataById(id),
-    boligLoader()
-  ]);
-  return { users, homes };
-}
+// // New loader for user favorites and homes
+// export async function userFavoritesLoader({ params }) {
+//   const { id } = params;
+//   console.log("User ID param:", id);
+//   const [users, homes] = await Promise.all([
+//     userFavoriteDataById(id),
+//     boligLoader()
+//   ]);
+//   return { users, homes };
+// }
 
 //await Promise.all([...])
 // is used in combinedLoader to run both data fetches at the same time (in parallel), instead of one after the other.

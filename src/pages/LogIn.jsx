@@ -17,7 +17,7 @@ const LogIn = () => {
   
   const { login } = useAuth();
   const from = location.state?.from.pathname || '/';
-  // console.log(from);
+  console.log(from);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -36,7 +36,7 @@ const LogIn = () => {
     });
 
     const userData = await response.json();
-    // console.log(userData);
+    console.log(userData);
 
     if (response.ok) {
       login(userData.jwt, userData.user.username, userData.user.email);
@@ -44,15 +44,15 @@ const LogIn = () => {
       setTimeout(() => navigate(from), 4500);
     } else {
       // Try to extract a useful error message
-  let errorMsg = 'Login failed';
-  if (userData.message && Array.isArray(userData.message) && userData.message[0]?.messages) {
-    errorMsg = userData.message[0].messages[0].message;
-  } else if (typeof userData.error === "string") {
-    errorMsg = userData.error;
-  } else if (typeof userData.message === "string") {
-    errorMsg = userData.message;
-  }
-  setError(errorMsg);
+      let errorMsg = 'Login failed';
+      if (userData.message && Array.isArray(userData.message) && userData.message[0]?.messages) {
+        errorMsg = userData.message[0].messages[0].message;
+      } else if (typeof userData.error === "string") {
+        errorMsg = userData.error;
+      } else if (typeof userData.message === "string") {
+        errorMsg = userData.message;
+      }
+      setError(errorMsg);
     }    
   };
 
@@ -71,6 +71,7 @@ const LogIn = () => {
              id="identifier"
              name="identifier" 
              placeholder="Email" 
+             autoComplete="email"
              className="border border-borderLine rounded-md p-2" />
           </div>
           <div className="flex flex-col">
@@ -81,6 +82,7 @@ const LogIn = () => {
              id="password"
              name="password"
              placeholder="Password"
+             autoComplete="current-password"
              className="w-full outline-none" />
              <div className="self-end right-0">
               <button
