@@ -5,7 +5,7 @@ import Boliger from './pages/Boliger.jsx';
 import Maeglere from './pages/Maeglere.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Favoritter from './pages/Favoritter.jsx';
-import { agentsLoader, boligLoader, combinedLoader, detailAgentLoader, detailBoligLoader } from './components/utilites/loderData.js';
+import { agentsLoader, boligLoader, combinedLoader, detailAgentLoader, detailBoligLoader, userFavorite, userFavoritesLoader } from './components/utilites/loderData.js';
 import Loading from './components/Loading.jsx';
 import DetailBolig from './pages/DetailBolig.jsx';
 import DetailAgent from './pages/DetailAgent.jsx';
@@ -15,13 +15,14 @@ import { ErrorBoundary } from './components/Error.jsx';
 import LogIn from './pages/LogIn.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
 import Register from './pages/Register.jsx';
+import CurrentUser from './pages/CurrentUser.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     hydrateFallback: <Loading />,
-    // errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
@@ -56,12 +57,16 @@ const router = createBrowserRouter([
             <Favoritter />
           </RequireAuth>
         ),
-        loader: boligLoader
+        // loader: userFavoritesLoader
       },
       {
         path: 'kontakt',
         element: <Contact />,
         action: handleSubmit
+      },
+      {
+        path: 'users/me',
+        element: <CurrentUser />,
       },
       {
         path: 'login',

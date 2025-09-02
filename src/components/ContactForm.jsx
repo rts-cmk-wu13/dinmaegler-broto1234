@@ -12,7 +12,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
     if (errors?.success) {
       const timer = setTimeout(() => {
         navigate('/');
-      }, 5000);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [errors, navigate]); 

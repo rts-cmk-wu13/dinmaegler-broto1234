@@ -13,15 +13,6 @@ const DetailBolig = () => {
 
   return (
     <section className="relative">
-      {/* {user && (
-                <button onClick={() => toggleFavorite(homes.id)} className="absolute top-2 right-2 p-2 bg-white rounded-full">   
-                {favorites?.homes.id ? (
-                  <IoIosHeart className="text-red-500" />
-                  ) : (
-                  <IoIosHeartEmpty className="text-red-500" />
-                )}         
-                </button>
-      )} */}
       <div className="sm:h-100">
         <img src={homes.images[0].url} alt={homes.title}  className="w-full"/>
       </div>
