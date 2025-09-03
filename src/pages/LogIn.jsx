@@ -39,7 +39,7 @@ const LogIn = () => {
     console.log(userData);
 
     if (response.ok) {
-      login(userData.jwt, userData.user.username, userData.user.email);
+      login(userData.jwt, userData.user);
       setSuccess(`Login successful! - ${userData.user.username}`);
       setTimeout(() => navigate(from), 4500);
     } else {

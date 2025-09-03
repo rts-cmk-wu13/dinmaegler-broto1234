@@ -9,7 +9,7 @@ export default function InfoLogin() {
 
   return (
     <section className="bg-primary text-white">
-      <div className="px-2 sm:container text-xs md:text-base flex gap-4 sm:justify-between items-center py-2">
+      <div className="mx-4 sm:mx-auto sm:container text-xs md:text-base flex justify-between items-center py-2">
         <div className="text-center sm:flex gap-4 py-2">
           <div className="flex gap-2 items-center">
             <FaRegPaperPlane />

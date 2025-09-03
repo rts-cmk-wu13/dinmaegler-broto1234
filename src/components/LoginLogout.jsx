@@ -8,12 +8,12 @@ import { CiHeart } from "react-icons/ci";
 
 const LoginLogout = () => {
   const [showInfo, setShowInfo] = useState(false);
-  const { logout, user, token } = useAuth();
+  const { token, user, logout } = useAuth();
   const { favorites } = useFavorites();
   const navigate = useNavigate();
-  console.log(user);
-  console.log(token);
-  console.log(favorites);
+  // console.log(user);
+  // console.log(token);
+  // console.log(favorites);
 
   const handleLogout = () => {
     logout();
@@ -32,24 +32,20 @@ const LoginLogout = () => {
       </Link>
         <button
         onClick={() => setShowInfo((prev) => !prev)}
-          className="flex items-center gap-1 text-green-700">
+          className="flex items-center gap-1 text-green-700 cursor-pointer">
             <FaUser />{user.username}
         </button>
-
-      {showInfo && (        
-        <div className="absolute right-0 top-8 bg-white border rounded shadow-md p-4 z-50 min-w-[250px]">
-          <div className="mb-2">
-            <div className="text-xs text-black/70">Username: <span className="font-semibold">{user.username}</span></div>
-            <div className="text-xs text-black/70">Email: <span className="font-semibold">{user.email}</span></div>
-          </div>
-          <button
-            onClick={handleLogout}
-            className="w-full bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 text-sm"
-          >
-            Logout
-          </button>
-        </div>
-         )}
+        {showInfo && (        
+            <div className="absolute right-0 top-8 bg-white border rounded shadow-md px-6 py-4 z-50 text-center">
+              <button
+                onClick={handleLogout}
+                className="bg-orange-500 text-white py-1 px-2 rounded text-sm cursor-pointer"
+              >
+                Logout
+              </button>
+            </div>
+          )
+        }
     </div>
   ) : (
     <Link to="/login" className="flex items-center gap-1">
