@@ -15,13 +15,14 @@ import { ErrorBoundary } from './components/Error.jsx';
 import LogIn from './pages/LogIn.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
 import Register from './pages/Register.jsx';
+import CurrentUser from './pages/CurrentUser.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     hydrateFallback: <Loading />,
-    // errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         path: 'kontakt',
         element: <Contact />,
         action: handleSubmit
+      },
+      {
+        path: 'users/me',
+        element: <CurrentUser />,
       },
       {
         path: 'login',

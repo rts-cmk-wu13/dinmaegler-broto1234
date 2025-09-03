@@ -1,4 +1,5 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
 import { useFavorites } from "../contexts/FavoritesContext";
 import { LuUserRound } from "react-icons/lu";
@@ -6,17 +7,21 @@ import { FaUser } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 
 const LoginLogout = () => {
-  const { logout, user } = useAuth();
+  const [showInfo, setShowInfo] = useState(false);
+  const { token, user, logout } = useAuth();
   const { favorites } = useFavorites();
   const navigate = useNavigate();
+  // console.log(user);
+  // console.log(token);
+  // console.log(favorites);
 
   const handleLogout = () => {
     logout();
     navigate("/");
   };
 
-  return user ? (
-    <div className="flex items-center gap-2">
+  return token && user ? (
+    <div className="flex items-center gap-2 relative">
       <Link to="/favoritter" className="relative">
         <CiHeart className="w-6 h-6" />
         {favorites.length > 0 && (
@@ -25,9 +30,29 @@ const LoginLogout = () => {
               </span>
             )}
       </Link>
-      <button onClick={handleLogout} className="flex items-center gap-1 text-green-700"><FaUser />{user}</button>
+        <button
+        onClick={() => setShowInfo((prev) => !prev)}
+          className="flex items-center gap-1 text-green-700 cursor-pointer">
+            <FaUser />{user.username}
+        </button>
+        {showInfo && (        
+            <div className="absolute right-0 top-8 bg-white border rounded shadow-md px-6 py-4 z-50 text-center">
+              <button
+                onClick={handleLogout}
+                className="bg-orange-500 text-white py-1 px-2 rounded text-sm cursor-pointer"
+              >
+                Logout
+              </button>
+            </div>
+          )
+        }
     </div>
-  ) : <Link to="/login" className="flex items-center gap-1"><LuUserRound />Login</Link>;
+  ) : (
+    <Link to="/login" className="flex items-center gap-1">
+      <LuUserRound />
+      Login
+    </Link>
+  );
 };
 
 export default LoginLogout;

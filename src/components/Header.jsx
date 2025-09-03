@@ -4,7 +4,7 @@ import LogoMenu from "./LogoMenu";
 
 export default function Header() {
   return (
-    <header>
+    <header className="">
       <InfoLogin />
       <LogoMenu />
     </header>

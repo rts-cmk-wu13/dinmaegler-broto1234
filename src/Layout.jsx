@@ -10,7 +10,7 @@ export default function Layout() {
     <>
       <ScrollRestoration /> {/* This component helps to restore scroll position on navigation/Top */}
       {/* Show Loading spinner when navigation is loading */}
-      {navigation.state === "loading" && <Loading />}
+      {/* {navigation.state === "loading" && <Loading />} */}
       <Header />
       <main>
         <Outlet />

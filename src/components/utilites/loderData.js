@@ -1,6 +1,7 @@
 import queryClient from '../../queryclient';
+import { API_BASE_URL } from "../../config";
 
-const BASE_URL = 'https://dinmaegler.onrender.com';
+// const BASE_URL = 'https://dinmaegler.onrender.com';
 
 // This function loads 'bolig' data
 export async function boligLoader() {
@@ -10,7 +11,7 @@ export async function boligLoader() {
   });
 }
 async function fetchBoligData() {
-  const response = await fetch(`${BASE_URL}/homes`);
+  const response = await fetch(`${API_BASE_URL}/homes`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -28,7 +29,7 @@ export async function detailBoligLoader({ params }) {
   });
 }
 async function fetchBoligDataById(id) {
-  const response = await fetch(`${BASE_URL}/homes/${id}`);
+  const response = await fetch(`${API_BASE_URL}/homes/${id}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -44,8 +45,8 @@ export async function agentsLoader() {
   });
 }
 async function fetchAgentsData() {
-  const response = await fetch(`${BASE_URL}/agents`);
-  // const response = await fetch(`${BASE_URL}/agents?_limit=5`);
+  const response = await fetch(`${API_BASE_URL}/agents`);
+  // const response = await fetch(`${API_BASE_URL}/agents?_limit=5`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -66,7 +67,7 @@ async function fetchAgentDataById(id) {
   if(!id) {
     return null;
   }
-  const response = await fetch(`${BASE_URL}/agents/${id}`);
+  const response = await fetch(`${API_BASE_URL}/agents/${id}`);
   if (!response.ok) {
     return null;
     // throw new Error('Network response was not ok');
@@ -80,6 +81,39 @@ export async function combinedLoader({ params }) {
   return { homes, agents, detailAgent };
 }
 
+// // This function loads 'user/:id' data
+// export async function userFavorite({ params }) {
+//   const { id } = params;
+//   // console.log(id);
+
+//   return queryClient.fetchQuery({
+//     queryKey: ['users', id],
+//     queryFn: () => userFavoriteDataById(id)
+//   });
+// }
+// async function userFavoriteDataById(id) {
+//   if (!id) return null;
+//   const token = sessionStorage.getItem("token"); // or get from AuthContext
+//   console.log("Token:", token);
+//   const response = await fetch(`https://dinmaegler.onrender.com/users/${id}`, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   if (!response.ok) return null;
+//   return response.json();
+// }
+
+// // New loader for user favorites and homes
+// export async function userFavoritesLoader({ params }) {
+//   const { id } = params;
+//   console.log("User ID param:", id);
+//   const [users, homes] = await Promise.all([
+//     userFavoriteDataById(id),
+//     boligLoader()
+//   ]);
+//   return { users, homes };
+// }
 
 //await Promise.all([...])
 // is used in combinedLoader to run both data fetches at the same time (in parallel), instead of one after the other.

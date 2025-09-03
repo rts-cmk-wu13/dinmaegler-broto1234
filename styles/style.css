@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-
 @theme {
   --color-primary: #162A41;
   --color-bghero: #444444;
@@ -16,6 +15,7 @@
   --color-googleColor: #DD4B39;
   --color-facebookColor: #3B5999;
   --color-twitterColor: #1DA1F2;
+  --color-notFoundColor01: #EEF7FF;
 
   --spacing-lsp1: 1px;
 

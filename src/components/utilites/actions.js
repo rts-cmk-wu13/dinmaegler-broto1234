@@ -1,7 +1,7 @@
 import { redirect } from "react-router";
 import { z } from "zod/v4";
 
-const schema = z.object({
+const signupSchema = z.object({
   navn: z.string().min(2, { message: "Name is required" }).max(50, { message: "Name is too long" }),
   email: z.email(),
   emne: z.string().min(2, { message: "Emne is required" }),
@@ -14,9 +14,8 @@ const schema = z.object({
 
 const handleSubmit = async ({ request }) => {
   const formData = await request.formData();
-  const result = schema.safeParse(Object.fromEntries(formData.entries()));
+  const result = signupSchema.safeParse(Object.fromEntries(formData.entries()));
   // const newsletter = formData.get("newsletter") === "true";
-
   console.log(result);
 
   if (!result.success) {
@@ -25,6 +24,8 @@ const handleSubmit = async ({ request }) => {
       return errors.properties
   }
 
+  //"https://dinmaegler.onrender.com/auth/local/register"
+  
   const response = await fetch("https://jsonplaceholder.typicode.com/users", {
     method: "POST",
     headers: {
@@ -33,7 +34,7 @@ const handleSubmit = async ({ request }) => {
     body: JSON.stringify(result.data),
   });
 
-  console.log(response);
+  // console.log(response);
   
   if (!response.ok) {
     throw new Error("Failed to submit contact form");

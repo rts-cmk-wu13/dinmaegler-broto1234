@@ -1,16 +1,16 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useFavorites } from '../contexts/FavoritesContext';
-import { IoIosHeart } from "react-icons/io";
-import { IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+// import {  } from "react-icons/io";
 
 const HeartIcon = ({ home, favoriteHomeIcon=true, boligStyle }) => {
-  const { user } = useAuth();
+  const { token } = useAuth();
   const { favorites, toggleFavorite } = useFavorites();
   // console.log(favorites);
 
   return (
     <div className={`relative z-33 ${boligStyle ? "" : "h-6"}`}>
-      {favoriteHomeIcon && user && (
+      {favoriteHomeIcon && token && (
           <button 
             onClick={() => toggleFavorite(home.id)} 
             className={`${boligStyle ? "absolute top-2 right-2 p-2 bg-white rounded-full" : ""}`}
