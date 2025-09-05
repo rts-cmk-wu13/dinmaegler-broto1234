@@ -59,7 +59,7 @@ const LogIn = () => {
   return (
     <section className="log-in" >
       <Banner bannerText="Account Login" secondText={true} loginText="Login"/>
-      <div className="w-90 mx-auto mt-6 py-12 flex flex-col gap-4">
+      <div className="container w-70 sm:w-90 mx-auto my-12 p-6 flex flex-col gap-4 border-1 border-borderLine rounded-md shadow-md">
         {error && <p className="text-red-600">{error}</p>}
         {success ? <p className=" text-2xl font-semibold text-green-600">{success}</p> : (<>
         <p className="font-semibold text-center text-lg text-headingColor">Log ind på din konto</p>
@@ -76,22 +76,22 @@ const LogIn = () => {
           </div>
           <div className="flex flex-col">
             <label htmlFor="password">Password</label>
-            <div className="w-full flex justify-between border rounded px-3 py-2">
+            <div className="w-full flex justify-between border-1 border-borderLine rounded px-3 py-2">
               <input
-             type={showPassword ? "text" : "password"}
-             id="password"
-             name="password"
-             placeholder="Password"
-             autoComplete="current-password"
-             className="w-full outline-none" />
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                placeholder="Password"
+                autoComplete="current-password"
+                className="w-full outline-none" />
              <div className="self-end right-0">
               <button
-            type="button"
-            onClick={() => setShowPassword((prev) => !prev)}
-            className=" text-gray-500"
-          >
-            {showPassword ? "Hide" : "Show"}
-          </button>
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className=" text-gray-500"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
              </div>
             </div>
           </div>

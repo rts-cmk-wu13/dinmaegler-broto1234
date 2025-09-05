@@ -32,7 +32,7 @@ export default function LogoMenu() {
       </div>
       {/* mobile menu */}
         {open && (
-          <div className="sm:hidden absolute w-full bg-white shadow-md">
+          <div className="sm:hidden absolute w-full bg-white shadow-md z-30">
             <nav className="px-4 py-3 space-y-4">
               {navLinks.map((item) => (
                 <NavLink 

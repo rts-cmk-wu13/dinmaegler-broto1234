@@ -1,8 +1,6 @@
 import queryClient from '../../queryclient';
 import { API_BASE_URL } from "../../config";
 
-// const BASE_URL = 'https://dinmaegler.onrender.com';
-
 // This function loads 'bolig' data
 export async function boligLoader() {
   return queryClient.fetchQuery({
@@ -21,7 +19,7 @@ async function fetchBoligData() {
 // This function loads 'detail bolig' data
 export async function detailBoligLoader({ params }) {
   const { id } = params;
-  console.log(id);
+  // console.log(id);
 
   return queryClient.fetchQuery({
     queryKey: ['homes', id],
@@ -81,6 +79,28 @@ export async function combinedLoader({ params }) {
   return { homes, agents, detailAgent };
 }
 
+// New function to fetch paginated homes
+export async function paginatedHomesLoader({ limit = 4, start = 0 } = {}) {
+  return queryClient.fetchQuery({
+    queryKey: ['homes', { limit, start }],
+    queryFn: () => fetchPaginatedHomes({ limit, start }),
+  });
+}
+async function fetchPaginatedHomes({ limit = 4, start = 0 } = {}) {
+  const response = await fetch(
+    `${API_BASE_URL}/homes?_limit=${limit}&_start=${start}`
+  );
+  if (!response.ok) throw new Error("Failed to fetch homes");
+  return response.json();
+}
+
+//await Promise.all([...])
+// is used in combinedLoader to run both data fetches at the same time (in parallel), instead of one after the other.
+// Why is this good?
+// It makes your loader faster, because it doesn't wait for the first fetch to finish before starting the second.
+// Both boligLoader() and agentsLoader() start together, and the loader waits until both are done.
+
+
 // // This function loads 'user/:id' data
 // export async function userFavorite({ params }) {
 //   const { id } = params;
@@ -114,9 +134,3 @@ export async function combinedLoader({ params }) {
 //   ]);
 //   return { users, homes };
 // }
-
-//await Promise.all([...])
-// is used in combinedLoader to run both data fetches at the same time (in parallel), instead of one after the other.
-// Why is this good?
-// It makes your loader faster, because it doesn't wait for the first fetch to finish before starting the second.
-// Both boligLoader() and agentsLoader() start together, and the loader waits until both are done.

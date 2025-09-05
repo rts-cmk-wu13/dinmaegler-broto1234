@@ -16,7 +16,7 @@ export default function QuickLink() {
           </div>
         ))}
         <div className="">
-          <NavLink to="/about" className="text-xs md:text-md text-primary hover:text-secondary">
+          <NavLink to="/login" className="text-xs md:text-md text-primary hover:text-secondary">
             Log ind / bliv bruger
           </NavLink>
         </div>

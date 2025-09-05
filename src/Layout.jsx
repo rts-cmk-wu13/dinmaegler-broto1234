@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ScrollRestoration, useNavigation, Outlet } from "react-router";
 import Header from './components/Header'
 import Footer from './components/footer/Footer'
@@ -9,13 +10,13 @@ export default function Layout() {
   return (
     <>
       <ScrollRestoration /> {/* This component helps to restore scroll position on navigation/Top */}
-      {/* Show Loading spinner when navigation is loading */}
-      {/* {navigation.state === "loading" && <Loading />} */}
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
+      <Suspense fallback={<Loading />}>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </Suspense>
     </>
   )
 }
