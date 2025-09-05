@@ -5,7 +5,6 @@ import ContactForm from '../components/ContactForm';
 import Search from '../components/search/Search';
 import Banner from '../components/Banner';
 
-
 const DetailAgent = () => {
   const {detailAgent} = useLoaderData();
   // console.log(detailAgent);

@@ -13,13 +13,13 @@ export default function FulgtHjem() {
           <p className="text-cPara text-sm">{danskeHjemData.descriptionTwo}</p>
           <div className="flex justify-between my-6">
             {danskeHjemData.stats.map(stat => (
-              <div key={stat.id} className="flex gap-2">
-                <div className="">
+              <div key={stat.id} className="flex items-center gap-2">
+                <div className="w-6 h-6 sm:w-12 sm:h-12">
                   <img src={stat.image} alt={stat.label} className="w-full h-full" />
                 </div>
                 <div>
-                  <p className="font-bold">{stat.number}</p>
-                  <p className="text-cPara text-sm">{stat.label}</p>
+                  <p className="text-xs sm:text-base font-bold">{stat.number}</p>
+                  <p className="text-cPara text-xs sm:text-base">{stat.label}</p>
                 </div>
               </div>
             ))}

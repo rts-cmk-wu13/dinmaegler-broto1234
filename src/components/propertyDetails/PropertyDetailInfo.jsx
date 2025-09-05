@@ -18,9 +18,9 @@ const PropertyDetailInfo = () => {
   const tabsList = [
     <ThumbTab />,
     // <img src={homes.images[0].url} alt="" />,
-    <img src={homes.floorplan.url} alt="floorplan" />,
+    <img src={homes.floorplan.url} alt="floorplan" className="h-50 w-[45rem]"/>,
     <iframe
-      width="760"
+      width="660"
       height="600"
       frameBorder="0"
       style={{ border: 0 }}
@@ -45,10 +45,10 @@ const PropertyDetailInfo = () => {
         </div>
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="fixed inset-0 z-50">
           <div className="fixed inset-0 bg-black/97 bg-opacity-90" aria-hidden="true" />
-          <div className="fixed inset-0 items-center justify-center">
-            <DialogPanel className="w-1/2 h-[75%] mx-auto mt-22 text-white flex flex-col justify-center items-center">
+          <div className="fixed inset-0 items-center justify-center top-10">
+            <DialogPanel className=" text-white flex flex-col justify-center items-center">
               {tabsList[activeTab]}
-              <div className="flex gap-4 text-2xl mt-4 ml-6">
+              <div className="flex gap-4 text-2xl mt-4">
                 <button onClick={() => setActiveTab(0)}><PiMountainsThin className="text-white" /></button>
                 <button onClick={() => setActiveTab(1)}><IoLayersOutline className="text-white" /></button>
                 <button onClick={() => setActiveTab(2)}><CiLocationOn className="text-white" /></button>

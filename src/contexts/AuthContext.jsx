@@ -11,9 +11,6 @@ const AuthProvider = ({ children }) => {
     return stored ? JSON.parse(stored) : null;
   });
 
-  // console.log('AuthProvider - user:', user);
-
-  // login expects: login(jwt, userObj)
   const login = (jwt, userObj) => {
     setToken(jwt);
     setUser(userObj);

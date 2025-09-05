@@ -1,10 +1,10 @@
 import { contactLinks } from '../../../data/footerLinks';
 import { mixData } from '../../../data/mixData';
+const { footerContactText } = mixData[3];
 
 export default function ContactLink( { extraStyle, fConText } ) {
-  const { footerContactText } = mixData[3];
   return (
-    <div className={`p-6 max-w-72 space-y-2 ${extraStyle === "contactPage" ? "w-[215px] p-2 flex flex-col mx-auto space-y-6" : ""}`}>
+    <div className={`p-6 max-w-72 space-y-2  shadow-lg bg-white ${extraStyle === "contactPage" ? "w-[215px] p-2 flex flex-col mx-auto space-y-6" : ""}`}>
       {contactLinks.map((link, idx) => (
         <div key={link.id} className={`flex items-center gap-1 ${extraStyle === "contactPage" && idx < 3 ? "inline-block text-center" : ""} 
         ${extraStyle === "contactPage" && idx !== contactLinks.length-1 ? "border-b border-borderLine pb-4" : ""}`

@@ -24,8 +24,7 @@ const handleSubmit = async ({ request }) => {
       return errors.properties
   }
 
-  //"https://dinmaegler.onrender.com/auth/local/register"
-  
+  //"https://dinmaegler.onrender.com/auth/local/register"  
   const response = await fetch("https://jsonplaceholder.typicode.com/users", {
     method: "POST",
     headers: {
@@ -33,13 +32,11 @@ const handleSubmit = async ({ request }) => {
     },
     body: JSON.stringify(result.data),
   });
-
   // console.log(response);
   
   if (!response.ok) {
     throw new Error("Failed to submit contact form");
   }
-
   // return redirect("/");
   return { success: true };
 }
