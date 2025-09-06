@@ -16,7 +16,7 @@ const LogIn = () => {
   const navigate = useNavigate();
   
   const { login } = useAuth();
-  const from = location.state?.from.pathname || '/';
+  const from = location.state?.from?.pathname || location.state?.from || '/';
   console.log(from);
 
   const handleLogin = async (event) => {

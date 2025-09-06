@@ -28,9 +28,6 @@ export default function SearchInput( { hiddenSome, pHolder} ) {
         {homesData && homesData.filter(itm =>
         searchTerm.trim() !== "" && (
           itm.type.toLowerCase().includes(searchTerm.toLowerCase()) 
-          // ||
-          // String(itm.price).includes(searchTerm.replace(/[^\d]/g, "")) ||
-          // itm.city.toLowerCase().includes(searchTerm.toLowerCase())
         )
           ).map(itm => (
           <Link to={`/homes/${itm.id}`} key={itm.id} onClick={() => setSearchTerm('')} className="flex items-center text-white gap-2 p-2 cursor-pointer">

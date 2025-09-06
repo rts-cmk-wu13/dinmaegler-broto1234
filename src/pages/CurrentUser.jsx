@@ -1,5 +1,4 @@
 
-// import { useEffect, useState } from "react";
 import UserInfoCard from "../components/UserInfoCard.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
 
@@ -15,7 +14,6 @@ const CurrentUser = () => {
     <div className="p-6">
       <h2 className="text-xl font-bold mb-2">Din brugerprofil</h2>
       <UserInfoCard user={user} />
-      {/* Add more fields as needed */}
     </div>
   );
 };

@@ -25,5 +25,4 @@ const Banner = ({ bannerText, secondText, loginText, registerText }) => {
     </div>
   )
 }
-
 export default Banner

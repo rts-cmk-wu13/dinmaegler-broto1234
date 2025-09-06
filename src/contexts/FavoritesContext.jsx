@@ -1,26 +1,18 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext } from "react";
+import { useAuth } from "./AuthContext";
 
 const FavoritesContext = createContext();
 
 export const useFavorites = () => useContext(FavoritesContext);
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState(() => {
-    // Load from localStorage on first render
-    const stored = localStorage.getItem("favorites");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const { user, toggleFavorite } = useAuth();
 
-  useEffect(() => {
-    // Save to localStorage whenever favorites change
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
-
-  const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
-    );
-  };
+  // Get favorites from the current user
+  const favorites = Array.isArray(user?.homes) ? 
+    user.homes.map(h => typeof h === "string" ? h : h.id) 
+    : 
+    [];
 
   return (
     <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>

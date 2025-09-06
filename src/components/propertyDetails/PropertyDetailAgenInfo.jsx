@@ -19,5 +19,4 @@ const PropertyDetailAgenInfo = () => {
     </div>
   )
 }
-
-export default PropertyDetailAgenInfo
+export default PropertyDetailAgenInfo;

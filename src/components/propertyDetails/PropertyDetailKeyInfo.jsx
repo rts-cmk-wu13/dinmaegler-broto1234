@@ -22,5 +22,4 @@ const PropertyDetailKeyInfo = () => {
         </div>
   )
 }
-
-export default PropertyDetailKeyInfo
+export default PropertyDetailKeyInfo;

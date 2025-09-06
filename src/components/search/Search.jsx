@@ -1,12 +1,9 @@
-// import HomeCard from "../cards/HomeCard.jsx";
 import SearchInput from "./SearchInput.jsx";
-
 
 export default function Search({ searchStyle, hiddenSome, pHolder, searchText }) {
 
   return (
     <section className={`flex flex-col justify-center max-w-lg mx-auto ${searchStyle === "heroSection" ? "" : ""}`}>
-      {/* <section className="flex flex-col justify-center max-w-lg mx-auto"> */}
         {hiddenSome && (
           <p className="text-black sm:text-white sm:text-2xl text-center font-bold">Søg efter din drømmebolig</p>
         )}
@@ -15,7 +12,6 @@ export default function Search({ searchStyle, hiddenSome, pHolder, searchText })
           {hiddenSome && (
             <p className="text-xs text-gray-500">Skriv din søgning herunder</p>
           )}
-          {/* <SearchInput searchHidden={hiddenSome} pHolder="Search" /> */}
           <SearchInput hiddenSome={hiddenSome} pHolder={pHolder} />
         </div>
       </section>

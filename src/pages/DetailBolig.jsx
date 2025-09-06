@@ -3,13 +3,9 @@ import PropertyDetailInfo from '../components/propertyDetails/PropertyDetailInfo
 import PropertyDetailKeyInfo from '../components/propertyDetails/PropertyDetailKeyInfo';
 import PropertyDetailAgenInfo from '../components/propertyDetails/PropertyDetailAgenInfo';
 import { IoIosHeartEmpty } from "react-icons/io";
-// import { useAuth } from '../contexts/AuthContext';
-
 
 const DetailBolig = () => {
   const homes = useLoaderData();
-  // const { user, favorites, toggleFavorite } = useAuth();
-  // console.log(homes.id);
 
   return (
     <section className="relative">
@@ -22,7 +18,6 @@ const DetailBolig = () => {
         <PropertyDetailAgenInfo />
       </div>
     </section>
-    // <PropertyDetail />
   )
 }
 

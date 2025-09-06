@@ -1,4 +1,3 @@
-// import Layout from '../Layout.jsx';
 
 export default function Loading() {
   return (

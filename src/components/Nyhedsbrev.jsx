@@ -100,7 +100,6 @@ export default function Nyhedsbrev() {
              />
           <button
            type="submit" 
-          //  onClick={handleSubscribe}
            className="cursor-pointer"><FaArrowRight style={{ color: "#455463" }} />
            </button>
           </div>

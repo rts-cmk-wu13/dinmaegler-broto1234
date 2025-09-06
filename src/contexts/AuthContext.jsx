@@ -25,8 +25,24 @@ const AuthProvider = ({ children }) => {
     sessionStorage.removeItem('user');
   };
 
+  const toggleFavorite = async (homeId) => {
+    if (!user) return;
+    let currentFavorites = Array.isArray(user.homes)
+      ? user.homes.map(h => typeof h === "string" ? h : h.id)
+      : [];
+    let newFavorites;
+    if (currentFavorites.includes(homeId)) {
+      newFavorites = currentFavorites.filter(id => id !== homeId);
+    } else {
+      newFavorites = [...currentFavorites, homeId];
+    }
+    // Update user favorites in backend if needed, then update local state:
+    setUser({ ...user, homes: newFavorites });
+    sessionStorage.setItem('user', JSON.stringify({ ...user, homes: newFavorites }));
+ };
+
   return (
-    <AuthContext.Provider value={{ token, user, login, logout }}>
+    <AuthContext.Provider value={{ token, user, login, logout, toggleFavorite }}>
       {children}
     </AuthContext.Provider>
   );

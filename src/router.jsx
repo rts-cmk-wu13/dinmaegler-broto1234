@@ -11,6 +11,7 @@ import DetailBolig from './pages/DetailBolig.jsx';
 import DetailAgent from './pages/DetailAgent.jsx';
 import Contact from './pages/Contact.jsx';
 import handleSubmit from './components/utilites/actions.js';
+import {registerSubmit} from './components/utilites/actions.js';
 import { ErrorBoundary } from './components/Error.jsx';
 import LogIn from './pages/LogIn.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
@@ -74,7 +75,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'register',
-        element: <Register />
+        element: <Register />,
+        action: registerSubmit
       },
       {
         path: '*',

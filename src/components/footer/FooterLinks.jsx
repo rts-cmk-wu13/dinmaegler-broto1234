@@ -1,11 +1,9 @@
-
 import logo from '../../assets/logo.svg';
 import LogoCompo from '../LogoCompo';
 import { mixData } from '../../../data/mixData';
 import ContactLink from './ContactLink';
 import QuickLink from './QuickLink';
 const { footerLogoText } = mixData[3];
-// import Dms from './Dms';
 
 export default function FooterLinks() {
   return (

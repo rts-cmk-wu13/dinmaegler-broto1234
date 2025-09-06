@@ -7,17 +7,15 @@ import { CiLocationOn } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import ThumbTab from '../ThumbTab';
 import HeartIcon from '../HeartIcon';
-// import tabGroup from '../ThumbTab';
 
 const PropertyDetailInfo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
 
   const homes = useLoaderData();
-  // console.log(homes);
+
   const tabsList = [
     <ThumbTab />,
-    // <img src={homes.images[0].url} alt="" />,
     <img src={homes.floorplan.url} alt="floorplan" className="h-50 w-[45rem]"/>,
     <iframe
       width="660"
@@ -28,7 +26,6 @@ const PropertyDetailInfo = () => {
       allowFullScreen
       title="Map"
     />
-    // <p>Favorite</p>
   ];
 
   return (
@@ -41,7 +38,6 @@ const PropertyDetailInfo = () => {
           <button onClick={() => {setIsOpen(true); setActiveTab(1);}}><IoLayersOutline /></button>
           <button onClick={() => {setIsOpen(true); setActiveTab(2);}}><CiLocationOn /></button>
           <HeartIcon home={homes} favoriteHomeIcon={true} />
-          {/* <button onClick={() => {setIsOpen(true); setActiveTab(3);}}><CiHeart /></button> */}
         </div>
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="fixed inset-0 z-50">
           <div className="fixed inset-0 bg-black/97 bg-opacity-90" aria-hidden="true" />
@@ -64,5 +60,4 @@ const PropertyDetailInfo = () => {
     </div>
   )
 }
-
-export default PropertyDetailInfo
+export default PropertyDetailInfo;

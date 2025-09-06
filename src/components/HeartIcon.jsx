@@ -1,7 +1,6 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useFavorites } from '../contexts/FavoritesContext';
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-// import {  } from "react-icons/io";
 
 const HeartIcon = ({ home, favoriteHomeIcon=true, boligStyle }) => {
   const { token } = useAuth();

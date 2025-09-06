@@ -7,7 +7,6 @@ import Banner from '../components/Banner';
 
 const DetailAgent = () => {
   const {detailAgent} = useLoaderData();
-  // console.log(detailAgent);
 
   return (
     <section>
@@ -39,6 +38,4 @@ const DetailAgent = () => {
     </section>
   )
 }
-
-
 export default DetailAgent

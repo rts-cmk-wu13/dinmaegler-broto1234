@@ -1,4 +1,3 @@
-// import PropertySearch from "../components/PropertySearch";
 import Lists from "../components/Lists";
 import BoligLists from "../components/BoligLists.jsx";
 import Banner from "../components/Banner";

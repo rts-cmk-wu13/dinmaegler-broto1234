@@ -2,7 +2,6 @@ import { NavLink } from 'react-router';
 import { quickLinks } from '../../../data/footerLinks';
 import Dms from './Dms';
 
-
 export default function QuickLink() {
   return (
     <div className="w-46">

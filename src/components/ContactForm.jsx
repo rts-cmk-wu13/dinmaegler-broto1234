@@ -4,18 +4,18 @@ import { Form, useActionData, useNavigate } from 'react-router';
 const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewsletter }) => {
 
   const [subscribed, setSubscribed] = useState(false);
-  const errors = useActionData();
+  const dataResult = useActionData();
   const navigate = useNavigate();
   
-  // Show dialog and redirect after 5 seconds if success
+  // Show dialog and redirect after 3 seconds if success
   useEffect(() => {
-    if (errors?.success) {
+    if (dataResult?.success) {
       const timer = setTimeout(() => {
         navigate('/');
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [errors, navigate]); 
+  }, [dataResult, navigate]);
 
   return (
     <div className="isolate bg-white px-6 py-2 lg:px-8">        
@@ -34,7 +34,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   placeholder={nPholder}
                   className="block w-full rounded-xs bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
-                <p>{errors && errors?.navn?.errors[0]}</p>
+                <p>{dataResult && dataResult?.navn?.errors[0]}</p>
               </div>
             </div>          
             <div className="">
@@ -49,7 +49,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   placeholder={ePholder}
                   className="block w-full rounded-xs bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
-                <p>{errors && errors?.email?.errors[0]}</p>
+                <p>{dataResult && dataResult?.email?.errors[0]}</p>
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -65,7 +65,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                     className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                   />
                 </div>
-                  <p>{errors && errors?.emne?.errors[0]}</p>
+                  <p>{dataResult && dataResult?.emne?.errors[0]}</p>
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -81,7 +81,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   resize-none"
                   defaultValue={''}
                 />
-                <p>{errors && errors?.message?.errors[0]}</p>
+                <p>{dataResult && dataResult?.message?.errors[0]}</p>
               </div>
             </div>
             {showNewsletter && (
@@ -100,7 +100,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                 >
                 Ja tak, jeg vil gerne modtage Din Mæglers nyhedsbrev.
               </label>
-                <p>{errors && errors?.newsletter?.errors[0]}</p>
+                <p>{dataResult && dataResult?.newsletter?.errors[0]}</p>
             </div>
             )}
           </div>
@@ -114,7 +114,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
           </div>
         </Form>
         {/* Success Dialog */}
-        {errors?.success && (
+        {dataResult?.success && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
             <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
               <svg className="h-12 w-12 text-green-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -11,5 +11,4 @@ const AgentsLists = () => {
     </div>
   )
 }
-
 export default AgentsLists

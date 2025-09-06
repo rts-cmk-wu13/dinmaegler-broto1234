@@ -22,5 +22,4 @@ const AgentInfoCard = ({agentData}) => {
     </div>
   )
 }
-
 export default AgentInfoCard;

@@ -11,7 +11,13 @@ export default function Lists({ limit, component, favoriteHomeIcon }) {
   const agents = Array.isArray(combinedLoader)
     ? combinedLoader
     : combinedLoader.agents || [];
-  const homesToShow = limit ? homes.slice(0, limit) : homes;
+    
+  // randomize homes array
+  function shuffleArray(array) {
+    return array.slice().sort(() => Math.random() - 0.5);
+  }
+  const shuffledHomes = shuffleArray(homes);
+  const homesToShow = limit ? shuffledHomes.slice(0, limit) : shuffledHomes;
   const agentsToShow = limit ? agents.slice(0, limit) : agents;
 
   return (
