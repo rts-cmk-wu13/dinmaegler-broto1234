@@ -1,10 +1,11 @@
 import { danskeHjemData } from "/data/danskeHjem";
+import hjemImage from "../../assets/danskHjem.png"
 
 export default function FulgtHjem() {
   return (
     <div className="container md:grid grid-cols-2 gap-6 space-y-6">
         <div className="sm:w-80 sm:h-80">
-          <img src={danskeHjemData.hjemImage} alt="hjem" className="" />
+          <img src={hjemImage} alt="hjem" className="" />
         </div>
         <div className="space-y-2">
           <p className="text-2xl font-bold max-w-80">{danskeHjemData.title}</p>

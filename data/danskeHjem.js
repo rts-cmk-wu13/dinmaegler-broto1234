@@ -4,7 +4,7 @@ export const danskeHjemData = {
   subtitle: "Det synes vi siger noget om os!",
   descriptionOne: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has normal distribution.",
   descriptionTwo: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-  hjemImage: "src/assets/danskHjem.png",
+
   stats: [
     { id: 1, number: "4829", label: "Boliger solgt", image: "src/assets/house.svg" },
     { id: 2, number: "158", label: "boliger til salg", image: "src/assets/home.svg" }
