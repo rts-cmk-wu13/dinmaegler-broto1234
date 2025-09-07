@@ -1,8 +1,10 @@
 # Din mægler – Real Estate Web App
 
-## A modern house selling website built with **React**, **React Router**, **QueryStack**, and **TailwindCSS**. Users can browse properties and save **favorites** after **logging in**, using features like useLoaderData, useActionData, and the Fetch API for efficient data management. Includes a site favicon and responsive UI.
+A modern house selling website built with **React**, **React Router**, **QueryStack**, and **TailwindCSS**. Users can browse properties and save **favorites** after **logging in**, using features like useLoaderData, useActionData, and the Fetch API for efficient data management. Includes a site favicon and responsive UI.
 
-- You can see [your-dream-home.netlify.app](https://your-dream-home.netlify.app/)
+## Live Demo
+
+Check out the live website here: [your-dream-home.netlify.app](https://your-dream-home.netlify.app/)
 
 ## Goals
 - Display searchable/filterable property listings.
