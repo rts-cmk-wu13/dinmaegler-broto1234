@@ -1,14 +1,16 @@
 // import { useLoaderData  } from 'react-router';
 import { BsTelephoneFill } from "react-icons/bs";
 import { FaPaperPlane } from "react-icons/fa";
+import SocialMedia from "./SocialMedia";
 
 const AgentInfoCard = ({agentData}) => {
   //  console.log(agentData);
 
   return (
     <div className="w-[15rem] sm:w-[25rem] lg:w-[28rem] sm:grid grid-cols-2 md:gap-8 items-center justify-between">
-      <div className="w-[12rem]">
+      <div className="w-[12rem] relative">
         <img src={agentData?.image?.url} alt={agentData?.name} />
+        <SocialMedia />
       </div>
       <div className="py-4 space-y-2">
         <div className="">
