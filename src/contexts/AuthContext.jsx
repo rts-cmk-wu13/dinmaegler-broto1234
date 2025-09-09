@@ -25,6 +25,24 @@ const AuthProvider = ({ children }) => {
     sessionStorage.removeItem('user');
   };
 
+  // To update user's favorites on the server
+    const updateFavorites = async (homesArray) => {
+      if (!user || !token) return;
+      const res = await fetch(`https://dinmaegler.onrender.com/users/${user.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ homes: homesArray }),
+      });
+      if (!res.ok) throw new Error("Could not update favorites");
+      const updatedUser = await res.json();
+      setUser(updatedUser);
+      sessionStorage.setItem("user", JSON.stringify(updatedUser));
+    };
+
+    // Toggle favorite home
   const toggleFavorite = async (homeId) => {
     if (!user) return;
     let currentFavorites = Array.isArray(user.homes)
@@ -36,9 +54,7 @@ const AuthProvider = ({ children }) => {
     } else {
       newFavorites = [...currentFavorites, homeId];
     }
-    // Update user favorites in backend if needed, then update local state:
-    setUser({ ...user, homes: newFavorites });
-    sessionStorage.setItem('user', JSON.stringify({ ...user, homes: newFavorites }));
+    await updateFavorites(newFavorites);
  };
 
   return (

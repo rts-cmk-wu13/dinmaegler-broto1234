@@ -31,10 +31,10 @@ const PropertySearch = ({
 
         <div className="my-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+            <div className="">
               <label className="block text-sm font-medium text-gray-700 mb-2">Ejendomstype</label>
               <select
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500  custom-select-arrow"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
               >

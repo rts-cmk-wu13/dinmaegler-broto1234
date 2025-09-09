@@ -21,7 +21,7 @@ export default function Lists({ limit, component, favoriteHomeIcon }) {
   const agentsToShow = limit ? agents.slice(0, limit) : agents;
 
   return (
-    <div className="container my-12 space-y-4 sm:space-y-0 sm:grid grid-cols-2 gap-4">
+    <div className={`container my-12 space-y-4 sm:space-y-0 sm:grid grid-cols-2 gap-4 ${component === "AgentsCrd" ? "sm:grid-cols-3" : ""}`}>
       {component === "HomeCrd" &&
         homesToShow.map((home) => (
           <HomeCard key={home.id} home={home} favoriteHomeIcon={favoriteHomeIcon} />

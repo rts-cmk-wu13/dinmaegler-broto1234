@@ -5,7 +5,6 @@ import { energyColors } from '../../../data/eneryColor';
 import Dot from '../Dot';
 
 export default function AgentCard({ agent }) {
-
 //  console.log(agent);
 
   return (

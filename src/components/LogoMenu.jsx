@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import {NavLink} from 'react-router';
 import { navLinks } from '../../data/navName';
 import LogoCompo from './LogoCompo';
 import { FiX } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useAuth } from '../contexts/AuthContext';
 
 export default function LogoMenu() {
 
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
   
   return (
     <section className="py-4 sm:container relative">
@@ -15,10 +17,18 @@ export default function LogoMenu() {
         <LogoCompo />
           <div>
             <nav className="hidden sm:flex gap-4">
-              {navLinks.map((item) => (
-                <NavLink key={item.id} to={`/${item.href}`} className="text-primary hover:text-secondary">
-                  {item.name}
-                </NavLink>
+              {navLinks.map((item, idx) => (
+                <Fragment key={item.id}>
+                  <NavLink to={`/${item.href}`} className="text-primary hover:text-secondary">
+                    {item.name}
+                  </NavLink>
+                  {/* Show Mine favoritter after the second item (idx === 1) */}
+                  {idx === 1 && user && (
+                    <NavLink to={`/favoritter`} className="text-primary hover:text-secondary">
+                      Mine favoritter
+                    </NavLink>
+                  )}
+                </Fragment>
               ))}
             </nav>
             {/* Mobile Button */}
@@ -34,14 +44,20 @@ export default function LogoMenu() {
         {open && (
           <div className="sm:hidden absolute w-full bg-white shadow-md z-30">
             <nav className="px-4 py-3 space-y-4">
-              {navLinks.map((item) => (
-                <NavLink 
-                  key={item.id} 
-                  to={`/${item.href}`} 
-                  className="block text-primary hover:text-secondary" 
-                  onClick={() => setOpen(false)}>
+              {navLinks.map((item, idx) => (
+                <Fragment key={item.id}>
+                  <NavLink to={`/${item.href}`}
+                   className="block text-primary hover:text-secondary"
+                   onClick={() => setOpen(false)}>
                     {item.name}
-                </NavLink>
+                  </NavLink>
+                  {/* Show Mine favoritter after the second item (idx === 1) */}
+                  {idx === 1 && user && (
+                    <NavLink to={`/favoritter`} className="block text-primary hover:text-secondary onClick={() => setOpen(false)}">
+                      Mine favoritter
+                    </NavLink>
+                  )}
+                </Fragment>
               ))}
             </nav>
           </div>

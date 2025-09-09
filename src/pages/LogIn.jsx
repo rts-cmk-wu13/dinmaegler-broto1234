@@ -41,7 +41,7 @@ const LogIn = () => {
     if (response.ok) {
       login(userData.jwt, userData.user);
       setSuccess(`Login successful! - ${userData.user.username}`);
-      setTimeout(() => navigate(from), 4500);
+      setTimeout(() => navigate(from), 2500);
     } else {
       // Try to extract a useful error message
       let errorMsg = 'Login failed';
