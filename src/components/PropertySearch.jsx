@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router';
+import { Range } from 'react-range';
 
-const PropertySearch = ({
-  homes,
-  selectedType,
-  setSelectedType,
-  price,
-  setPrice,
-}) => {
+const PropertySearch = ({ homes, selectedType, setSelectedType, values, setValues, step, min, max }) => {
   // Get unique home types
   const uniqueTypes = ["All", ...new Set(homes.map(home => home.type))];
 
@@ -18,9 +13,8 @@ const PropertySearch = ({
     }).format(value) + ' kr.';
   };
 
-
   return (
-    <div className="py-8">
+    <div className="propety-search py-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-lg font-semibold">
           <p className="flex flex-col">
@@ -28,7 +22,6 @@ const PropertySearch = ({
             <span className="border-2 inline-block w-8"></span>
           </p>
         </div>
-
         <div className="my-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="">
@@ -42,8 +35,58 @@ const PropertySearch = ({
                   <option key={index} value={type}>{type}</option>
                 ))}
               </select>
-            </div>            
-            <div>
+            </div> 
+
+            <div className="px-4">
+              <p className="text-sm font-medium text-gray-700 mb-8">Pris-interval</p>
+              <Range
+                step={step}
+                min={min}
+                max={max}
+                values={values}
+                onChange={(vals) => setValues(vals)}
+                renderTrack={({ props, children }) => (
+                  <div
+                    {...props}
+                    className="w-full mx-auto h-1 bg-gray-300 rounded-lg relative"
+                    style={{ ...props.style}}
+                  >
+                    <div
+                      className="absolute h-1 bg-gray-500 rounded-lg"
+                      style={{
+                        left: `${((values[0] - min) / (max - min)) * 100}%`,
+                        width: `${((values[1] - values[0]) / (max - min)) * 100}%`,
+                      }}
+                    />
+                    {children}
+                  </div>
+                )}
+                renderThumb={({ props, index }) => {
+                  const { key, ...restProps } = props;
+                  return (
+                    <div
+                      key={key}
+                      {...restProps}
+                      className="h-3 w-3 bg-gray-400 rounded-full focus:outline-none absolute top-0 flex items-center"
+                      style={{ cursor: 'url(/cursors/custom-arrow.cur), auto' }}
+                    >
+                      <span
+                        className="text-[12px] font-semibold"
+                        style={{ position: 'absolute', top: '-20px', left: '-1.2rem', whiteSpace: 'nowrap' }}
+                      >
+                        {values[index].toLocaleString('da-DK')} kr.
+                      </span>
+                    </div>
+                  );
+                }}
+              />
+              <div className="flex justify-between text-xs text-gray-600 mt-2 mb-6">
+                <span>{min.toLocaleString('da-DK')} kr.</span>
+                <span>{max.toLocaleString('da-DK')} kr.</span>
+              </div>
+            </div>
+
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Pris-interval</label>
               <div className="">
                 <div className="relative"> 
@@ -65,7 +108,7 @@ const PropertySearch = ({
                 <span>{formatPrice(0)}</span>
                 <span>{formatPrice(12000000)}</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>        
       </div>

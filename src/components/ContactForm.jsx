@@ -34,7 +34,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   placeholder={nPholder}
                   className="block w-full rounded-xs bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
-                <p>{dataResult && dataResult?.navn?.errors[0]}</p>
+                <p className="text-red-400">{dataResult && dataResult?.navn?.errors[0]}</p>
               </div>
             </div>          
             <div className="">
@@ -49,7 +49,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   placeholder={ePholder}
                   className="block w-full rounded-xs bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
-                <p>{dataResult && dataResult?.email?.errors[0]}</p>
+                <p className="text-red-400">{dataResult && dataResult?.email?.errors[0]}</p>
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -65,7 +65,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                     className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                   />
                 </div>
-                  <p>{dataResult && dataResult?.emne?.errors[0]}</p>
+                  <p className="text-red-400">{dataResult && dataResult?.emne?.errors[0]}</p>
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -81,27 +81,27 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   resize-none"
                   defaultValue={''}
                 />
-                <p>{dataResult && dataResult?.message?.errors[0]}</p>
+                <p className="text-red-400">{dataResult && dataResult?.message?.errors[0]}</p>
               </div>
             </div>
             {showNewsletter && (
               <div className="sm:col-span-2 flex items-center space-x-2">
-              <input
-                type="checkbox"
-                name="newsletter"
-                value="true"
-                checked={subscribed}
-                onChange={(e) => setSubscribed(e.target.checked)}
-                className="h-6 w-6 border-gray-100 text-blue-600 focus:ring-blue-500"
-              />
-              <label
-                htmlFor="newsletter"
-                className="text-[0.6rem] md:text-xs text-gray-900 cursor-pointer"
-                >
-                Ja tak, jeg vil gerne modtage Din Mæglers nyhedsbrev.
-              </label>
-                <p>{dataResult && dataResult?.newsletter?.errors[0]}</p>
-            </div>
+                <input
+                  type="checkbox"
+                  name="newsletter"
+                  value="true"
+                  checked={subscribed}
+                  onChange={(e) => setSubscribed(e.target.checked)}
+                  className="h-6 w-6 border-gray-100 text-blue-600 focus:ring-blue-500"
+                />
+                <label
+                  htmlFor="newsletter"
+                  className="text-[0.6rem] md:text-xs text-gray-900 cursor-pointer"
+                  >
+                  Ja tak, jeg vil gerne modtage Din Mæglers nyhedsbrev.
+                </label>
+                <p className="text-red-400">{dataResult && dataResult?.newsletter?.errors[0]}</p>
+              </div>
             )}
           </div>
           <div className="mt-8 w-30">

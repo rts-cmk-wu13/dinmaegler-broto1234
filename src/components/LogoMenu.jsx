@@ -12,7 +12,7 @@ export default function LogoMenu() {
   const { user } = useAuth();
   
   return (
-    <section className="py-4 sm:container relative">
+    <section className="logomenu py-4 sm:container relative">
       <div className="mx-4 sm:mx-0 flex justify-between items-center text-xs md:text-base">
         <LogoCompo />
           <div>
@@ -43,7 +43,7 @@ export default function LogoMenu() {
       {/* mobile menu */}
         {open && (
           <div className="sm:hidden absolute w-full bg-white shadow-md z-30">
-            <nav className="px-4 py-3 space-y-4">
+            <nav className="px-4 py-3 space-y-6">
               {navLinks.map((item, idx) => (
                 <Fragment key={item.id}>
                   <NavLink to={`/${item.href}`}
