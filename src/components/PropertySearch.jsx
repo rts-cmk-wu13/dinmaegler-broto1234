@@ -63,6 +63,8 @@ const PropertySearch = ({ homes, selectedType, setSelectedType, values, setValue
                 )}
                 renderThumb={({ props, index }) => {
                   const { key, ...restProps } = props;
+                  const value = values[index];
+                  const showLabel = value !== min && value !== max;
                   return (
                     <div
                       key={key}
@@ -70,12 +72,14 @@ const PropertySearch = ({ homes, selectedType, setSelectedType, values, setValue
                       className="h-3 w-3 bg-gray-400 rounded-full focus:outline-none absolute top-0 flex items-center"
                       style={{ cursor: 'url(/cursors/custom-arrow.cur), auto' }}
                     >
-                      <span
-                        className="text-[12px] font-semibold"
-                        style={{ position: 'absolute', top: '-20px', left: '-1.2rem', whiteSpace: 'nowrap' }}
-                      >
-                        {values[index].toLocaleString('da-DK')} kr.
-                      </span>
+                      {showLabel && (
+                        <span
+                          className="text-[12px] font-semibold"
+                          style={{ position: 'absolute', top: '-20px', left: '-1.2rem', whiteSpace: 'nowrap' }}
+                        >
+                          {value.toLocaleString('da-DK')} kr.
+                        </span>
+                      )}
                     </div>
                   );
                 }}
