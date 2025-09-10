@@ -14,7 +14,7 @@ const MAX = 12000000;
 const BoligLists = ({ favoriteHomeIcon }) => {
   // Filter states
   const [selectedType, setSelectedType] = useState('All');
-  // const [price, setPrice] = useState(12000000);
+  // Price range states
   const [values, setValues] = useState([MIN, MAX]);
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);

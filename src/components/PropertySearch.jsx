@@ -89,30 +89,6 @@ const PropertySearch = ({ homes, selectedType, setSelectedType, values, setValue
                 <span>{max.toLocaleString('da-DK')} kr.</span>
               </div>
             </div>
-
-            {/* <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Pris-interval</label>
-              <div className="">
-                <div className="relative"> 
-                  {price < 12000000 && (
-                    <span className="absolute -top-3 right-2 text-sm font-semibold text-gray-500">{formatPrice(price)}</span>
-                  )}
-                  <input
-                    type="range"
-                    min={0}
-                    max={12000000}
-                    // step={100000}
-                    value={price}
-                    onChange={(e) => setPrice(Number(e.target.value))}
-                    className="w-full h-[2px] bg-gray-500 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gray-400"
-                  />                
-                </div>
-              </div>
-              <div className="flex justify-between text-xs text-gray-500 mt-1">
-                <span>{formatPrice(0)}</span>
-                <span>{formatPrice(12000000)}</span>
-              </div>
-            </div> */}
           </div>
         </div>        
       </div>

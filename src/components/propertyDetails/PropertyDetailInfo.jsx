@@ -42,7 +42,7 @@ const PropertyDetailInfo = () => {
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="fixed inset-0 z-50">
           <div className="fixed inset-0 bg-black/97 bg-opacity-90" aria-hidden="true" />
           <div className="fixed inset-0 items-center justify-center top-10">
-            <DialogPanel className=" text-white flex flex-col justify-center items-center">
+            <DialogPanel className="w-1/2 mx-auto text-white flex flex-col justify-center items-center">
               {tabsList[activeTab]}
               <div className="flex gap-4 text-2xl mt-4">
                 <button onClick={() => setActiveTab(0)}><PiMountainsThin className="text-white" /></button>
