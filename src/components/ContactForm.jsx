@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Form, useActionData, useNavigate } from 'react-router';
+import { Form, useNavigate, useNavigation, useActionData } from 'react-router';
 
 const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewsletter }) => {
 
   const [subscribed, setSubscribed] = useState(false);
-  const dataResult = useActionData();
+  const navigation = useNavigation();
   const navigate = useNavigate();
-  
-  // Show dialog and redirect after 3 seconds if success
+  const actionData = useActionData();
+  const isSubmitting = navigation.state === 'submitting';
+
+  // Show dialog and redirect after 2 seconds if success
   useEffect(() => {
-    if (dataResult?.success) {
+    if (actionData?.success) {
       const timer = setTimeout(() => {
         navigate('/');
-      }, 3000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [dataResult, navigate]);
+  }, [actionData, navigate]);
 
   return (
     <div className="isolate bg-white px-6 py-2 lg:px-8">        
@@ -34,7 +36,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   placeholder={nPholder}
                   className="block w-full rounded-xs bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
-                <p className="text-red-400">{dataResult && dataResult?.navn?.errors[0]}</p>
+                <p className="text-red-400 text-xs">{actionData?.navn?.errors}</p>
               </div>
             </div>          
             <div className="">
@@ -49,7 +51,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   placeholder={ePholder}
                   className="block w-full rounded-xs bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
-                <p className="text-red-400">{dataResult && dataResult?.email?.errors[0]}</p>
+                <p className="text-red-400 text-xs">{actionData?.email?.errors}</p>
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -57,7 +59,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                 Emne
               </label>
               <div className="mt-2.5">
-                <div className="flex rounded-xs bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">                
+                <div className="flex rounded-xs bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">             
                   <input
                     name="emne"
                     type="text"
@@ -65,7 +67,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                     className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                   />
                 </div>
-                  <p className="text-red-400">{dataResult && dataResult?.emne?.errors[0]}</p>
+                  <p className="text-red-400 text-xs">{actionData?.emne?.errors}</p>
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -81,52 +83,43 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
                   resize-none"
                   defaultValue={''}
                 />
-                <p className="text-red-400">{dataResult && dataResult?.message?.errors[0]}</p>
+                <p className="text-red-400 text-xs">{actionData?.message?.errors}</p>
               </div>
             </div>
             {showNewsletter && (
-              <div className="sm:col-span-2 flex items-center space-x-2">
-                <input
+              <div className="sm:col-span-2">
+                <div className="flex items-center space-x-2">
+                  <input
                   type="checkbox"
                   name="newsletter"
                   value="true"
                   checked={subscribed}
                   onChange={(e) => setSubscribed(e.target.checked)}
                   className="h-6 w-6 border-gray-100 text-blue-600 focus:ring-blue-500"
-                />
-                <label
-                  htmlFor="newsletter"
-                  className="text-[0.6rem] md:text-xs text-gray-900 cursor-pointer"
-                  >
-                  Ja tak, jeg vil gerne modtage Din Mæglers nyhedsbrev.
-                </label>
-                <p className="text-red-400">{dataResult && dataResult?.newsletter?.errors[0]}</p>
+                 />
+                  <label
+                    htmlFor="newsletter"
+                    className="text-[0.6rem] md:text-xs text-gray-900 cursor-pointer"
+                    >
+                    Ja tak, jeg vil gerne modtage Din Mæglers nyhedsbrev.
+                  </label>
+                </div>
               </div>
             )}
           </div>
           <div className="mt-8 w-30">
             <button
               type="submit"
-              className="block w-full bg-primary px-3 py-2.5 text-center text-xs font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="block w-full bg-primary px-3 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              disabled={isSubmitting}
             >
-              Send besked
+              {isSubmitting
+                 ? "Submitting..."
+                  : "Send message"}
             </button>
           </div>
         </Form>
-        {/* Success Dialog */}
-        {dataResult?.success && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-            <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
-              <svg className="h-12 w-12 text-green-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <p className="text-xl font-semibold text-green-700 mb-2">Formularen er sendt!</p>
-              <p className="text-gray-600">Du bliver sendt til forsiden om et øjeblik...</p>
-            </div>
-          </div>
-        )}
       </div>
   )
 }
-
 export default ContactForm

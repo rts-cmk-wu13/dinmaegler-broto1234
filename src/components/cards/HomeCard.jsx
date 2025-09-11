@@ -11,7 +11,7 @@ export default function HomeCard({ home, favoriteHomeIcon = true, favoriteCardSt
   // const isFavorite = favorites.includes(home.id);
 
   return (
-    <div className={`relative shadow-md rounded-sm overflow-hidden cursor-pointer hover:scale-101 hover:shadow-lg transition-all ${favoriteCardStyle ? 'my-6' : ''}`}>
+    <div className={`home-card relative shadow-md rounded-sm overflow-hidden cursor-pointer hover:scale-101 hover:shadow-lg transition-all ${favoriteCardStyle ? 'my-6' : ''}`}>
       <Link to={`/homes/${home.id}`} className={`${favoriteCardStyle ? 'grid grid-cols-5 p-2 border-2 border-borderLine' : ''}`}>
         <div className={`${favoriteCardStyle ? 'w-25 h-20' : 'w-full h-36 sm:h-44 lg:h-80'}`}>
           <img src={home.images[0].url} alt={home.title} className="w-full" />

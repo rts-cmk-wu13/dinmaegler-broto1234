@@ -5,7 +5,7 @@ import Banner from "../components/Banner";
 export default function Boliger() {
 
   return (
-    <section className="bg-gray-50 mb-6">
+    <section className="bg-gray-50">
       <Banner bannerText="Boliger til salg" />
       <BoligLists />
     </section>

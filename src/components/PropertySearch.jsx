@@ -14,7 +14,7 @@ const PropertySearch = ({ homes, selectedType, setSelectedType, values, setValue
   };
 
   return (
-    <div className="propety-search py-8">
+    <div className="propety-search">
       <div className="max-w-4xl mx-auto">
         <div className="text-lg font-semibold">
           <p className="flex flex-col">

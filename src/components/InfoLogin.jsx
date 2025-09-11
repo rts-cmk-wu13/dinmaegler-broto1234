@@ -1,12 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { BsTelephoneFill } from "react-icons/bs";
 import LoginLogout from "./LoginLogout";
 
 export default function InfoLogin() {
-  const location = useLocation();
-  // console.log(location);
-
+  
   return (
     <section className="bg-primary text-white">
       <div className="mx-4 sm:mx-auto sm:container text-xs md:text-base flex justify-between items-center py-2">

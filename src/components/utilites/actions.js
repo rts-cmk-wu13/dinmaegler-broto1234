@@ -9,7 +9,7 @@ const signupSchema = z.object({
   message: z.string().min(6, { message: "Message is too short" }).max(50, { message: "Message is too long" }),
   newsletter: z.preprocess(
     val => val === "true",
-    z.boolean()
+    z.boolean().optional()
   )
 });
 
@@ -23,8 +23,8 @@ const handleSubmit = async ({ request }) => {
       console.log(errors);   
       return errors.properties
   }
-
-  //"https://dinmaegler.onrender.com/auth/local/register"  
+  
+  // const response = await fetch(`${API_BASE_URL}/auth/local/`, {
   const response = await fetch("https://jsonplaceholder.typicode.com/users", {
     method: "POST",
     headers: {

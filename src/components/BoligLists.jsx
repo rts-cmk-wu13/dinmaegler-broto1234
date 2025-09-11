@@ -39,29 +39,29 @@ const BoligLists = ({ favoriteHomeIcon }) => {
   const paginatedHomes = sortedHomes?.slice(startIndex, endIndex);
 
   return (
-    <div className="bolig-list container">
-      <div>
-        <PropertySearch
-          homes={homes}
-          selectedType={selectedType}
-          setSelectedType={setSelectedType}
-          values={values}
-          setValues={setValues}
-          step={STEP}
-          min={MIN}
-          max={MAX}
-        />
-        {paginatedHomes?.length > 0 ? (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6">
-              {paginatedHomes.map((home) => (
-                <div key={home.id}>
-                  <HeartIcon home={home} favoriteHomeIcon={favoriteHomeIcon} boligStyle={true} />
-                  <HomeCard key={home.id} home={home} />
-                </div>
-              ))}
-            </div>
-            {/* Pagination Controls */}
+    <div className="bolig-list container py-8">
+      <PropertySearch
+        homes={homes}
+        selectedType={selectedType}
+        setSelectedType={setSelectedType}
+        values={values}
+        setValues={setValues}
+        step={STEP}
+        min={MIN}
+        max={MAX}
+      />
+      {paginatedHomes?.length > 0 ? (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-y-6">
+            {paginatedHomes.map((home) => (
+              <div key={home.id}>
+                <HeartIcon home={home} favoriteHomeIcon={favoriteHomeIcon} boligStyle={true} />
+                <HomeCard key={home.id} home={home} />
+              </div>
+            ))}
+          </div>
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
             <div className="w-70 sm:w-90 mx-auto flex justify-between items-center mt-8">
               <button
                 className="flex items-center px-1 sm:px-2 py-1 rounded bg-primary text-white disabled:opacity-50
@@ -90,13 +90,13 @@ const BoligLists = ({ favoriteHomeIcon }) => {
                 <span className="-mt-1 mr-1">Next</span><MdKeyboardDoubleArrowRight />
               </button>
             </div>
-          </>
-        ) : (
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <p className="sm:flex flex-col justify-center sm:text-xl text-white sm:p-6 bg-primary sm:m-4">Ingen boliger til salg</p>
-          </div>
-        )}
-      </div>
+          )}
+        </>
+      ) : (
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <p className="sm:flex flex-col justify-center sm:text-xl text-white sm:p-6 bg-primary sm:m-4">Ingen boliger til salg</p>
+        </div>
+      )}
     </div>
   );
 };

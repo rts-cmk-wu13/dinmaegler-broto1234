@@ -43,7 +43,7 @@ export default function LogoMenu() {
       {/* mobile menu */}
         {open && (
           <div className="sm:hidden absolute w-full bg-white shadow-md z-30">
-            <nav className="px-4 py-3 space-y-6">
+            <nav className="px-4 py-12 space-y-6">
               {navLinks.map((item, idx) => (
                 <Fragment key={item.id}>
                   <NavLink to={`/${item.href}`}

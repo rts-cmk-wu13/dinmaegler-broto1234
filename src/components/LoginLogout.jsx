@@ -11,9 +11,6 @@ const LoginLogout = () => {
   const { token, user, logout } = useAuth();
   const { favorites } = useFavorites();
   const navigate = useNavigate();
-  // console.log(user);
-  // console.log(token);
-  // console.log(favorites);
 
   const handleLogout = () => {
     logout();
