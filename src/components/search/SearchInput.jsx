@@ -28,10 +28,10 @@ export default function SearchInput( { hiddenSome, pHolder} ) {
     <div>
       <div className="searchInput flex gap-2">
         <input
-        type="text"
-        placeholder={pHolder} className="border-2 border-gray-300 px-2 w-full placeholder:text-xs focus:outline-none focus:ring-2 focus:ring-inputbg" 
-        onChange={handleChange}
-        // value={searchTerm}
+          type="text"
+          placeholder={pHolder} className="border-2 border-gray-300 px-2 w-full placeholder:text-xs focus:outline-none focus:ring-2 focus:ring-inputbg" 
+          onChange={handleChange}
+          // value={searchTerm}
         />
         {/* <button
           type="button"
@@ -42,8 +42,11 @@ export default function SearchInput( { hiddenSome, pHolder} ) {
         </button> */}
         {hiddenSome && (
           <Button 
-           to="#" name="Søg"           txColor="text-white"
-           bgColor="bg-primary" bdColor="border-primary"
+           to="#" 
+           name="Søg"           
+           txColor="text-white"
+           bgColor="bg-primary" 
+           bdColor="border-primary"
            />
         )}
       </div>    
@@ -54,20 +57,21 @@ export default function SearchInput( { hiddenSome, pHolder} ) {
               itm.type.toLowerCase().includes(searchTerm.toLowerCase()) 
               )
             ).map(itm => (
-            <Link to={`/homes/${itm.id}`} key={itm.id} onClick={() => setSearchTerm('')} className="flex items-center text-white gap-2 p-2 cursor-pointer">
-              <div className="w-14 h-14">
-                <img src={itm.images[0].url} alt={itm.title} className="w-full" />
-              </div> 
-              <div className="mx-4 py-2 border-b-2 border-borderLine">
-                <p className="text-xs font-semibold">{itm.adress1}, {itm.postalcode} {itm.city}</p>
-                <p className="flex items-center gap-4 text-xs">
-                  <span className="font-semibold text-indigo-400">{itm.type}</span>
-                  <span><span className="font-semibold">Price: </span>{itm.price.toLocaleString('en-US').replace(/,/g, '.')} kr.</span>
-                  <span><span className="font-semibold">Ejerudgift: </span>{itm.netto.toLocaleString('en-US').replace(/,/g, '.')} kr.</span>
-                </p>
-              </div>
-            </Link>
-          ))}
+              <Link to={`/homes/${itm.id}`} key={itm.id} onClick={() => setSearchTerm('')} className="flex items-center text-white gap-2 p-2 cursor-pointer">
+                <div className="w-14 h-14">
+                  <img src={itm.images[0].url} alt={itm.title} className="w-full" />
+                </div> 
+                <div className="mx-4 py-2 border-b-2 border-borderLine">
+                  <p className="text-xs font-semibold">{itm.adress1}, {itm.postalcode} {itm.city}</p>
+                  <p className="flex items-center gap-4 text-xs">
+                    <span className="font-semibold text-indigo-400">{itm.type}</span>
+                    <span><span className="font-semibold">Price: </span>{itm.price.toLocaleString('en-US').replace(/,/g, '.')} kr.</span>
+                    <span><span className="font-semibold">Ejerudgift: </span>{itm.netto.toLocaleString('en-US').replace(/,/g, '.')} kr.</span>
+                  </p>
+                </div>
+              </Link>
+            )
+          )}
         </div>
       {/* )} */}
     </div>
