@@ -7,7 +7,7 @@ const AgentInfoCard = ({agentData}) => {
   //  console.log(agentData);
 
   return (
-    <div className="sm:w-[25rem] lg:w-[28rem] sm:grid grid-cols-2 md:gap-8 items-center justify-between">
+    <div className="agentInfoCard sm:w-[25rem] lg:w-[28rem] sm:grid grid-cols-2 md:gap-8 items-center justify-between">
       <div className="w-[12rem] relative">
         <img src={agentData?.image?.url} alt={agentData?.name} />
         <SocialMedia />

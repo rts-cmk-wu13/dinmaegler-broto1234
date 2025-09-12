@@ -64,7 +64,7 @@ const BoligLists = ({ favoriteHomeIcon }) => {
           {totalPages > 1 && (
             <div className="w-70 sm:w-90 mx-auto flex justify-between items-center mt-8">
               <button
-                className="flex items-center px-1 sm:px-2 py-1 rounded bg-primary text-white disabled:opacity-50
+                className="flex items-center px-1 sm:px-2 py-1 rounded bg-primary text-white disabled:opacity-20
                 disabled:cursor-not-allowed"
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 1}
@@ -75,7 +75,7 @@ const BoligLists = ({ favoriteHomeIcon }) => {
                 {[...Array(totalPages)].map((_, idx) => (
                   <button
                     key={idx}
-                    className={`px-2 sm:px-3 py-0 sm:py-1 rounded-full ${currentPage === idx + 1 ? 'bg-blue-600 text-white font-semibold' : 'bg-gray-400'}`}
+                    className={`text-white px-2 sm:px-3 py-0 sm:py-1 rounded-full ${currentPage === idx + 1 ? 'bg-indigo-900 font-semibold' : 'bg-primary/50'}`}
                     onClick={() => setCurrentPage(idx + 1)}
                   >
                     {idx + 1}

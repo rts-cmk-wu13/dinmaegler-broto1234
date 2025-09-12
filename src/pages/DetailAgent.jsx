@@ -9,7 +9,7 @@ const DetailAgent = () => {
   const {detailAgent} = useLoaderData();
 
   return (
-    <section>
+    <section className="DetailAgent">
       <Banner bannerText="Kontakt en medarbejder" />
       <div className="container my-4 sm:my-16 sm:grid grid-cols-3 gap-4">
         <div className="sm:col-span-2 sm:w-[25rem] lg:w-[28rem] p-4 border-1 border-borderLine">

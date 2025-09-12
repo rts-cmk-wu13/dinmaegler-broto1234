@@ -4,7 +4,7 @@ import { API_BASE_URL } from "../../config";
 
 const signupSchema = z.object({
   navn: z.string().min(2, { message: "Name is required" }).max(50, { message: "Name is too long" }),
-  email: z.email(),
+  email: z.string().email("Invalid email address"),
   emne: z.string().min(2, { message: "Emne is required" }),
   message: z.string().min(6, { message: "Message is too short" }).max(50, { message: "Message is too long" }),
   newsletter: z.preprocess(
@@ -45,15 +45,12 @@ export default handleSubmit;
 
 // Registration schema for user registration
 const RegistrationSchema = z.object({
-    username: z
-      .string()
+    username: z.string()
       .min(3, "Username must be at least 3 characters")
       .max(30, "Username too long"),
-    email: z
-      .string()
+    email: z.string()
       .email("Invalid email address"),
-    password: z
-      .string()
+    password: z.string()
       .min(4, "Password must be at least 4 characters")
       .max(72, "Password too long"),
     confirmPassword: z.string(),
@@ -67,6 +64,7 @@ const registerSubmit = async ({request}) => {
     const formData = await request.formData();
     const formRes = Object.fromEntries(formData.entries());
     const validation = RegistrationSchema.safeParse(formRes);
+
     if (!validation.success) {
       const errors = validation.error.format();
       // setErrors(errors);

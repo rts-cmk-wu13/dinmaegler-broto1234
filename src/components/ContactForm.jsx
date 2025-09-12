@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Form, useNavigate, useNavigation, useActionData } from 'react-router';
+import FormBtn from './FormBtn';
 
 const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewsletter }) => {
 
   const [subscribed, setSubscribed] = useState(false);
-  const navigation = useNavigation();
+  
   const navigate = useNavigate();
   const actionData = useActionData();
   const isSubmitting = navigation.state === 'submitting';
+
+  console.log(actionData);
+  
 
   // Show dialog and redirect after 2 seconds if success
   useEffect(() => {
@@ -107,17 +111,7 @@ const ContactForm = ({ nPholder, ePholder, emnePholder, bksPholder, showNewslett
               </div>
             )}
           </div>
-          <div className="mt-8 w-30">
-            <button
-              type="submit"
-              className="block w-full bg-primary px-3 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              disabled={isSubmitting}
-            >
-              {isSubmitting
-                 ? "Submitting..."
-                  : "Send message"}
-            </button>
-          </div>
+          <FormBtn />
         </Form>
       </div>
   )

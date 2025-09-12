@@ -91,7 +91,7 @@ export default function Nyhedsbrev() {
         <form onSubmit={handleSubscribe} className="relative">
           <div className="flex max-w-md rounded-sm bg-white px-3 py-2 ">
             <input 
-            type="email"
+              type="email"
              placeholder="Indtast din email adresse" 
              value={email}
              required

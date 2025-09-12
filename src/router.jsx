@@ -5,7 +5,7 @@ import Boliger from './pages/Boliger.jsx';
 import Maeglere from './pages/Maeglere.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Favoritter from './pages/Favoritter.jsx';
-import { agentsLoader, boligLoader, combinedLoader, detailAgentLoader, detailBoligLoader } from './components/utilites/loderData.js';
+import { agentsLoader, boligLoader, combinedLoader, detailBoligLoader } from './components/utilites/loderData.js';
 import Loading from './components/Loading.jsx';
 import DetailBolig from './pages/DetailBolig.jsx';
 import DetailAgent from './pages/DetailAgent.jsx';
